@@ -1,0 +1,203 @@
+{
+  "_comment": "Evolution API configuration for Ometz Dental. Ometz uses whatsapp-business-cloud (Baileys-based) as the integration mode. Validated 27 jul 2026 with confirmed number +595 987 126 790.",
+  "$schema": "https://raw.githubusercontent.com/EvolutionAPI/evolution-api/main/.env.example",
+
+  "server": {
+    "host": "0.0.0.0",
+    "port": 8080,
+    "https": {
+      "enabled": true,
+      "certificate": "/etc/nginx/ssl/ometzdental.com.crt",
+      "key": "/etc/nginx/ssl/ometzdental.com.key"
+    },
+    "cors": {
+      "enabled": true,
+      "origins": ["https://ometzdental.com", "https://app.ometzdental.com"]
+    }
+  },
+
+  "instance": {
+    "name": "ometsdental-business",
+    "number": "+595 987 126 790",
+    "number_raw": "595987126790",
+    "business_id": "ometsdental",
+    "token": "${EVOLUTION_API_TOKEN}",
+    "qrcode": true,
+    "integration": "WHATSAPP-BUSINESS",
+    "reject_call": false,
+    "msg_call": "Hola, este número es solo para mensajes escritos. Para urgencias dentales, llamame al +595 987 126 790.",
+    "groups_ignore": false,
+    "always_online": true,
+    "read_messages": true,
+    "read_status": true,
+    "sync_full_history": false
+  },
+
+  "provider": {
+    "_comment": "Default Baileys provider — uses WhatsApp Web protocol. For official WhatsApp Business Cloud API, swap to 'official' provider (requires Meta approval).",
+    "provider": "baileys",
+    "fallback": "official"
+  },
+
+  "webhook": {
+    "enabled": true,
+    "url": "https://api.ometzdental.com/webhooks/evolution",
+    "events": [
+      "MESSAGES_UPSERT",
+      "MESSAGES_UPDATE",
+      "MESSAGES_DELETE",
+      "SEND_MESSAGE",
+      "CONTACTS_UPSERT",
+      "CONTACTS_UPDATE",
+      "PRESENCE_UPDATE",
+      "CHATS_UPSERT",
+      "CHATS_UPDATE",
+      "CHATS_DELETE",
+      "GROUPS_UPSERT",
+      "CONNECTION_UPDATE",
+      "QRCODE_UPDATED"
+    ],
+    "webhook_base64": false,
+    "webhook_by_events": true,
+    "webhook_headers": {
+      "Authorization": "Bearer ${WEBHOOK_HMAC_SECRET}",
+      "X-Ometz-Source": "evolution-api"
+    }
+  },
+
+  "rabbitmq": {
+    "_comment": "Optional. For high-volume message processing.",
+    "enabled": false,
+    "url": "amqp://localhost"
+  },
+
+  "sqs": {
+    "_comment": "Optional. AWS SQS as fallback.",
+    "enabled": false
+  },
+
+  "redis": {
+    "_comment": "Session storage. Required for Evolution API.",
+    "enabled": true,
+    "host": "redis",
+    "port": 6379,
+    "password": "${REDIS_PASSWORD}",
+    "database": 0
+  },
+
+  "postgres": {
+    "enabled": true,
+    "host": "postgres",
+    "port": 5432,
+    "database": "evolution",
+    "username": "evolution",
+    "password": "${POSTGRES_PASSWORD}"
+  },
+
+  "log": {
+    "level": "INFO",
+    "logfile": "evolution-api.log"
+  },
+
+  "auth": {
+    "type": "jwt",
+    "jwt_secret": "${JWT_SECRET}",
+    "expires_in": "7d",
+    "api_key": "${EVOLUTION_API_KEY}"
+  },
+
+  "business_hours": {
+    "_comment": "TZ: America/Asuncion (UTC-4)",
+    "timezone": "America/Asuncion",
+    "weekdays": {
+      "mon": {"open": "14:30", "close": "19:00"},
+      "tue": {"open": "14:30", "close": "19:00"},
+      "wed": {"open": "14:30", "close": "19:00"},
+      "thue": {"open": "14:30", "close": "19:00"},
+      "fri": {"open": "14:30", "close": "19:00"}
+    },
+    "always_off": ["sat", "sun"]
+  },
+
+  "quick_replies": {
+    "_comment": "12 quick replies pre-armadas. Auto-responses that Hermes will trigger on incoming messages.",
+    "_comment2": "See 08_WHATSAPP/templates/final/quick-replies-v2-final.md for full text.",
+    "enabled": true,
+    "trigger": "exact_match",
+    "responses": [
+      { "shortcut": "/hola", "file": "templates/responses/hola.md" },
+      { "shortcut": "/cita", "file": "templates/responses/cita.md" },
+      { "shortcut": "/segundaop", "file": "templates/responses/segundaop.md" },
+      { "shortcut": "/precio", "file": "templates/responses/precio.md" },
+      { "shortcut": "/horario", "file": "templates/responses/horario.md" },
+      { "shortcut": "/direccion", "file": "templates/responses/direccion.md" },
+      { "shortcut": "/deriv", "file": "templates/responses/deriv.md" },
+      { "shortcut": "/pago", "file": "templates/responses/pago.md" },
+      { "shortcut": "/garantia", "file": "templates/responses/garantia.md" },
+      { "shortcut": "/espera", "file": "templates/responses/espera.md" },
+      { "shortcut": "/gracias", "file": "templates/responses/gracias.md" },
+      { "shortcut": "/resena", "file": "templates/responses/resena.md" }
+    ]
+  },
+
+  "classification": {
+    "_comment": "Hermes classifies incoming messages via webhook. See whatsapp-operations-guide.md for the 7 flows.",
+    "ai_provider": "openai",
+    "model": "gpt-4o-mini",
+    "temperature": 0.2,
+    "max_tokens": 400,
+    "fallback": "rule_based",
+    "categories": [
+      "PRICING",
+      "APPOINTMENT",
+      "SECOND_OPINION",
+      "LOCATION",
+      "WORK_INQUIRY",
+      "EXISTING_PATIENT",
+      "REFERRAL",
+      "URGENT",
+      "SPAM",
+      "COMPLAINT",
+      "UNKNOWN"
+    ],
+    "priority_levels": {
+      "URGENT": {"sla_minutes": 5, "escalate_to": "dra.gabi"},
+      "HOT_LEAD": {"sla_minutes": 30, "escalate_to": "dra.gabi"},
+      "APPOINTMENT": {"sla_minutes": 120},
+      "PRICING": {"sla_minutes": 240},
+      "GENERAL": {"sla_minutes": 1440},
+      "SPAM": {"sla_minutes": null, "action": "ignore"}
+    }
+  },
+
+  "crm": {
+    "_comment": "Supabase CRM integration. Leads + conversations logged automatically.",
+    "provider": "supabase",
+    "url": "${SUPABASE_URL}",
+    "service_key": "${SUPABASE_SERVICE_KEY}",
+    "tables": {
+      "contacts": "wa_contacts",
+      "conversations": "wa_conversations",
+      "messages": "wa_messages",
+      "appointments": "wa_appointments"
+    }
+  },
+
+  "calendar": {
+    "_comment": "Google Calendar integration for appointment scheduling.",
+    "provider": "google_calendar",
+    "calendar_id": "primary",
+    "business_hours_only": true,
+    "slot_duration_minutes": 60,
+    "buffer_minutes": 15
+  },
+
+
+  "rate_limiting": {
+    "_comment": "Anti-ban. WhatsApp bans accounts that send too many messages.",
+    "messages_per_minute": 10,
+    "messages_per_hour": 100,
+    "messages_per_day": 500,
+    "cooldown_after_burst_seconds": 30
+  }
+}

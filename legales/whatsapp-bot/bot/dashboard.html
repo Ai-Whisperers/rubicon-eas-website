@@ -1,0 +1,899 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#1a5f5a">
+    <title>Ometz Dental · Admin</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        :root {
+            --primary: #1a5f5a;
+            --primary-light: #2a7f7a;
+            --accent: #b8860b;
+            --bg: #faf8f5;
+            --bg-card: #ffffff;
+            --text: #1a1a1a;
+            --text-muted: #6a6a6a;
+            --border: #e5e0d8;
+            --success: #1d7a3a;
+            --warning: #c97a00;
+            --danger: #b91c1c;
+            --urgent: #dc2626;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.5;
+            padding-bottom: 100px;
+        }
+
+        .header {
+            background: var(--primary);
+            color: white;
+            padding: 20px 20px 16px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .header h1 {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .header .subtitle {
+            font-size: 13px;
+            opacity: 0.9;
+        }
+
+        .metrics {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 8px;
+            padding: 16px;
+        }
+
+        .metric {
+            background: var(--bg-card);
+            border-radius: 12px;
+            padding: 12px;
+            border: 1px solid var(--border);
+        }
+
+        .metric-label {
+            font-size: 11px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        .metric-value {
+            font-size: 24px;
+            font-weight: 700;
+            margin-top: 4px;
+            color: var(--primary);
+        }
+
+        .metric.urgent .metric-value {
+            color: var(--urgent);
+        }
+
+        .nav-tabs {
+            display: flex;
+            background: var(--bg-card);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 64px;
+            z-index: 99;
+        }
+
+        .nav-tab {
+            flex: 1;
+            padding: 12px;
+            background: none;
+            border: none;
+            border-bottom: 3px solid transparent;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-muted);
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .nav-tab.active {
+            color: var(--primary);
+            border-bottom-color: var(--primary);
+        }
+
+        .section {
+            padding: 16px;
+        }
+
+        .section h2 {
+            font-size: 14px;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            margin-bottom: 12px;
+        }
+
+        .day-picker {
+            display: flex;
+            gap: 8px;
+            overflow-x: auto;
+            padding: 0 16px 16px;
+            scrollbar-width: none;
+        }
+
+        .day-picker::-webkit-scrollbar { display: none; }
+
+        .day-btn {
+            flex: 0 0 60px;
+            padding: 10px 6px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .day-btn.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        .day-btn .day-name {
+            font-size: 11px;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        .day-btn .day-num {
+            font-size: 18px;
+            font-weight: 700;
+            margin-top: 4px;
+        }
+
+        .day-btn .day-month {
+            font-size: 11px;
+            opacity: 0.8;
+        }
+
+        .appointment {
+            background: var(--bg-card);
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            padding: 14px;
+            margin-bottom: 8px;
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+
+        .appointment-time {
+            flex: 0 0 60px;
+            text-align: center;
+            border-right: 1px solid var(--border);
+            padding-right: 12px;
+        }
+
+        .appointment-time .time {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .appointment-time .duration {
+            font-size: 10px;
+            color: var(--text-muted);
+        }
+
+        .appointment-body {
+            flex: 1;
+        }
+
+        .appointment-patient {
+            font-weight: 600;
+            font-size: 15px;
+            margin-bottom: 2px;
+        }
+
+        .appointment-phone {
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        .appointment-service {
+            display: inline-block;
+            background: rgba(26, 95, 90, 0.1);
+            color: var(--primary);
+            font-size: 11px;
+            padding: 2px 8px;
+            border-radius: 10px;
+            margin-top: 4px;
+        }
+
+        .appointment-status {
+            margin-left: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .status-badge {
+            font-size: 10px;
+            padding: 4px 8px;
+            border-radius: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            text-align: center;
+        }
+
+        .status-scheduled { background: rgba(184, 134, 11, 0.15); color: var(--accent); }
+        .status-confirmed { background: rgba(26, 95, 90, 0.15); color: var(--primary); }
+        .status-attended { background: rgba(29, 122, 58, 0.15); color: var(--success); }
+        .status-cancelled { background: rgba(185, 28, 28, 0.15); color: var(--danger); }
+        .status-no_show { background: rgba(106, 106, 106, 0.15); color: var(--text-muted); }
+
+        .actions {
+            display: flex;
+            gap: 6px;
+            margin-top: 8px;
+        }
+
+        .action-btn {
+            flex: 1;
+            padding: 8px;
+            border: 1px solid var(--border);
+            background: var(--bg-card);
+            border-radius: 8px;
+            font-size: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            color: var(--text);
+        }
+
+        .action-btn.primary {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        .action-btn.danger {
+            background: var(--danger);
+            color: white;
+            border-color: var(--danger);
+        }
+
+        .empty {
+            text-align: center;
+            padding: 40px 20px;
+            color: var(--text-muted);
+            font-size: 14px;
+        }
+
+        .empty .icon {
+            font-size: 48px;
+            margin-bottom: 12px;
+        }
+
+        .fab {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: var(--primary);
+            color: white;
+            border: none;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            font-size: 24px;
+            cursor: pointer;
+            z-index: 50;
+        }
+
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.5);
+            display: none;
+            align-items: flex-end;
+            justify-content: center;
+            z-index: 200;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        .modal {
+            background: var(--bg-card);
+            width: 100%;
+            max-width: 500px;
+            border-radius: 16px 16px 0 0;
+            padding: 24px;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .modal h3 {
+            font-size: 18px;
+            margin-bottom: 16px;
+        }
+
+        .form-field {
+            margin-bottom: 14px;
+        }
+
+        .form-field label {
+            display: block;
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-bottom: 4px;
+            font-weight: 600;
+        }
+
+        .form-field input, .form-field select, .form-field textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            font-size: 15px;
+            background: var(--bg);
+        }
+
+        .form-field textarea {
+            min-height: 80px;
+            resize: vertical;
+        }
+
+        .modal-actions {
+            display: flex;
+            gap: 8px;
+            margin-top: 16px;
+        }
+
+        .modal-actions button {
+            flex: 1;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .btn-cancel { background: var(--border); color: var(--text); }
+        .btn-save { background: var(--primary); color: white; }
+
+        .conversation {
+            background: var(--bg-card);
+            border-radius: 12px;
+            padding: 12px;
+            margin-bottom: 8px;
+            cursor: pointer;
+            border: 1px solid var(--border);
+        }
+
+        .conversation-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 4px;
+        }
+
+        .conversation-name {
+            font-weight: 600;
+            font-size: 15px;
+        }
+
+        .conversation-time {
+            font-size: 11px;
+            color: var(--text-muted);
+        }
+
+        .conversation-preview {
+            font-size: 13px;
+            color: var(--text-muted);
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .message-thread {
+            background: var(--bg-card);
+            border-radius: 12px;
+            padding: 12px;
+            margin-bottom: 6px;
+            max-width: 80%;
+        }
+
+        .message-thread.inbound {
+            background: #f0f0f0;
+            margin-right: auto;
+        }
+
+        .message-thread.outbound {
+            background: var(--primary);
+            color: white;
+            margin-left: auto;
+        }
+
+        .message-thread .text {
+            font-size: 14px;
+        }
+
+        .message-thread .meta {
+            font-size: 10px;
+            opacity: 0.7;
+            margin-top: 4px;
+        }
+
+        .pill {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 10px;
+            font-size: 10px;
+            font-weight: 700;
+            background: rgba(184, 134, 11, 0.15);
+            color: var(--accent);
+            text-transform: uppercase;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 20px;
+            color: var(--text-muted);
+            font-size: 13px;
+        }
+
+        .pull-to-refresh {
+            text-align: center;
+            padding: 8px;
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>אומץ Ometz Dental</h1>
+        <div class="subtitle">Admin · <span id="current-time"></span></div>
+    </div>
+
+    <div class="metrics">
+        <div class="metric">
+            <div class="metric-label">Mensajes hoy</div>
+            <div class="metric-value" id="metric-messages">—</div>
+        </div>
+        <div class="metric">
+            <div class="metric-label">Citas hoy</div>
+            <div class="metric-value" id="metric-appointments">—</div>
+        </div>
+        <div class="metric">
+            <div class="metric-label">Contactos 24h</div>
+            <div class="metric-value" id="metric-contacts">—</div>
+        </div>
+        <div class="metric urgent">
+            <div class="metric-label">Escalaciones</div>
+            <div class="metric-value" id="metric-escalations">—</div>
+        </div>
+    </div>
+
+    <div class="nav-tabs">
+        <button class="nav-tab active" data-tab="today">Hoy</button>
+        <button class="nav-tab" data-tab="week">Semana</button>
+        <button class="nav-tab" data-tab="contacts">Contactos</button>
+    </div>
+
+    <div id="tab-today" class="tab-content">
+        <div class="section">
+            <h2>📅 Vista del día</h2>
+        </div>
+        <div class="day-picker" id="day-picker"></div>
+        <div class="section">
+            <div id="appointments-list" class="loading">Cargando...</div>
+        </div>
+    </div>
+
+    <div id="tab-week" class="tab-content" style="display:none">
+        <div class="section">
+            <h2>📅 Esta semana</h2>
+            <div id="week-view" class="loading">Cargando...</div>
+        </div>
+    </div>
+
+    <div id="tab-contacts" class="tab-content" style="display:none">
+        <div class="section">
+            <h2>👥 Contactos recientes</h2>
+            <div id="contacts-list" class="loading">Cargando...</div>
+        </div>
+    </div>
+
+    <button class="fab" id="fab-new" title="Nueva cita">+</button>
+
+    <div class="modal-overlay" id="modal-overlay">
+        <div class="modal">
+            <h3 id="modal-title">Nueva cita</h3>
+            <form id="appt-form">
+                <div class="form-field">
+                    <label>Teléfono</label>
+                    <input type="tel" id="appt-phone" placeholder="595987123456" required>
+                </div>
+                <div class="form-field">
+                    <label>Paciente</label>
+                    <input type="text" id="appt-name" placeholder="Nombre" required>
+                </div>
+                <div class="form-field">
+                    <label>Fecha y hora</label>
+                    <input type="datetime-local" id="appt-datetime" required>
+                </div>
+                <div class="form-field">
+                    <label>Servicio</label>
+                    <select id="appt-service">
+                        <option value="">Seleccionar...</option>
+                        <option value="Consulta General">Consulta General</option>
+                        <option value="Segunda Opinión">Segunda Opinión</option>
+                        <option value="Profilaxis">Profilaxis</option>
+                        <option value="Restauración">Restauración</option>
+                        <option value="Blanqueamiento">Blanqueamiento</option>
+                        <option value="Plan de tratamiento">Plan de tratamiento</option>
+                    </select>
+                </div>
+                <div class="form-field">
+                    <label>Notas</label>
+                    <textarea id="appt-notes" placeholder="Notas adicionales..."></textarea>
+                </div>
+                <div class="modal-actions">
+                    <button type="button" class="btn-cancel" id="modal-cancel">Cancelar</button>
+                    <button type="submit" class="btn-save">Agendar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="messages-overlay">
+        <div class="modal">
+            <h3 id="messages-title">Conversación</h3>
+            <div id="messages-list" style="margin-bottom: 16px; max-height: 50vh; overflow-y: auto"></div>
+            <div class="modal-actions">
+                <button type="button" class="btn-cancel" onclick="closeMessages()">Cerrar</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // === STATE ===
+        let currentDate = new Date();
+        let currentTab = 'today';
+        let appointmentsCache = {};
+        let conversationPhone = null;
+
+        // === TIME ===
+        function updateTime() {
+            const now = new Date();
+            const time = now.toLocaleTimeString('es-PY', { hour: '2-digit', minute: '2-digit' });
+            document.getElementById('current-time').textContent = time;
+        }
+        setInterval(updateTime, 30000);
+        updateTime();
+
+        // === UTILS ===
+        function fmtDate(date) {
+            return date.toISOString().split('T')[0];
+        }
+
+        function fmtDateAsu(date) {
+            return date.toLocaleDateString('es-PY', {
+                weekday: 'long',
+                day: 'numeric',
+                month: 'long',
+            });
+        }
+
+        function fmtTime(dateStr) {
+            if (!dateStr) return '';
+            const dt = new Date(dateStr);
+            return dt.toLocaleTimeString('es-PY', { hour: '2-digit', minute: '2-digit' });
+        }
+
+        function getStatusClass(status) {
+            return 'status-' + status;
+        }
+
+        function getStatusLabel(status) {
+            const labels = {
+                'scheduled': 'Agendada',
+                'confirmed': 'Confirmada',
+                'attended': 'Asistió',
+                'cancelled': 'Cancelada',
+                'no_show': 'No vino',
+                'rescheduled': 'Reprogramada',
+            };
+            return labels[status] || status;
+        }
+
+        // === DAY PICKER ===
+        function renderDayPicker() {
+            const container = document.getElementById('day-picker');
+            container.innerHTML = '';
+            const today = new Date();
+            // Show today + 6 days
+            for (let i = 0; i < 7; i++) {
+                const d = new Date(today);
+                d.setDate(d.getDate() + i);
+                const btn = document.createElement('div');
+                btn.className = 'day-btn' + (fmtDate(d) === fmtDate(currentDate) ? ' active' : '');
+                btn.onclick = () => selectDate(d);
+                const dayName = d.toLocaleDateString('es-PY', { weekday: 'short' });
+                btn.innerHTML = `
+                    <div class="day-name">${dayName}</div>
+                    <div class="day-num">${d.getDate()}</div>
+                    <div class="day-month">${d.toLocaleDateString('es-PY', { month: 'short' })}</div>
+                `;
+                container.appendChild(btn);
+            }
+        }
+
+        function selectDate(date) {
+            currentDate = date;
+            renderDayPicker();
+            loadAppointments(fmtDate(date));
+        }
+
+        // === TABS ===
+        document.querySelectorAll('.nav-tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+                currentTab = tab.dataset.tab;
+                document.querySelectorAll('.tab-content').forEach(c => c.style.display = 'none');
+                document.getElementById('tab-' + currentTab).style.display = 'block';
+                if (currentTab === 'today') loadAppointments(fmtDate(currentDate));
+                else if (currentTab === 'week') loadWeek();
+                else if (currentTab === 'contacts') loadContacts();
+            });
+        });
+
+        // === APPOINTMENTS ===
+        async function loadAppointments(date) {
+            const list = document.getElementById('appointments-list');
+            list.innerHTML = '<div class="loading">Cargando...</div>';
+            try {
+                const res = await fetch(`/api/appointments?date=${date}`);
+                const data = await res.json();
+                appointmentsCache[date] = data;
+                renderAppointments(data, list);
+            } catch (e) {
+                list.innerHTML = `<div class="empty"><div class="icon">⚠️</div>Error: ${e.message}</div>`;
+            }
+        }
+
+        function renderAppointments(data, container) {
+            if (!data || data.length === 0) {
+                container.innerHTML = `
+                    <div class="empty">
+                        <div class="icon">📭</div>
+                        No hay citas para este día
+                    </div>
+                `;
+                return;
+            }
+            container.innerHTML = data.map(a => {
+                const time = new Date(a.scheduled_at).toLocaleTimeString('es-PY', { hour: '2-digit', minute: '2-digit' });
+                return `
+                    <div class="appointment">
+                        <div class="appointment-time">
+                            <div class="time">${time}</div>
+                            <div class="duration">${a.duration_minutes}min</div>
+                        </div>
+                        <div class="appointment-body">
+                            <div class="appointment-patient">${a.patient_name || '—'}</div>
+                            <div class="appointment-phone">${a.phone}</div>
+                            ${a.service ? `<span class="appointment-service">${a.service}</span>` : ''}
+                            ${a.notes ? `<div style="font-size: 12px; color: var(--text-muted); margin-top: 4px">${a.notes}</div>` : ''}
+                            <div class="actions">
+                                <button class="action-btn primary" onclick="updateStatus(${a.id}, 'confirmed')">Confirmar</button>
+                                <button class="action-btn" onclick="updateStatus(${a.id}, 'attended')">Asistió</button>
+                                <button class="action-btn danger" onclick="updateStatus(${a.id}, 'cancelled')">Cancelar</button>
+                            </div>
+                        </div>
+                        <div class="appointment-status">
+                            <span class="status-badge ${getStatusClass(a.status)}">${getStatusLabel(a.status)}</span>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        async function updateStatus(id, status) {
+            try {
+                const res = await fetch(`/api/appointments/${id}`, {
+                    method: 'PATCH',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ status }),
+                });
+                if (res.ok) {
+                    loadAppointments(fmtDate(currentDate));
+                }
+            } catch (e) {
+                alert('Error: ' + e.message);
+            }
+        }
+
+        async function loadWeek() {
+            const container = document.getElementById('week-view');
+            container.innerHTML = '<div class="loading">Cargando...</div>';
+            const today = new Date();
+            const start = new Date(today);
+            const day = today.getDay();
+            const diff = today.getDate() - day + (day === 0 ? -6 : 1);
+            start.setDate(diff);
+            const end = new Date(start);
+            end.setDate(start.getDate() + 6);
+            const startStr = fmtDate(start);
+            const endStr = fmtDate(end);
+
+            try {
+                const res = await fetch(`/api/appointments?start=${startStr}&end=${endStr}`);
+                const data = await res.json();
+                if (data.length === 0) {
+                    container.innerHTML = '<div class="empty"><div class="icon">📅</div>No hay citas esta semana</div>';
+                    return;
+                }
+                let html = '';
+                for (let i = 0; i < 7; i++) {
+                    const d = new Date(start);
+                    d.setDate(start.getDate() + i);
+                    const dateStr = fmtDate(d);
+                    const dayAppts = data.filter(a => a.scheduled_at.startsWith(dateStr));
+                    if (dayAppts.length > 0) {
+                        html += `<h3 style="margin-top: 16px; font-size: 13px; color: var(--text-muted)">${fmtDateAsu(d)}</h3>`;
+                        html += dayAppts.map(a => `
+                            <div class="appointment">
+                                <div class="appointment-time">
+                                    <div class="time">${fmtTime(a.scheduled_at)}</div>
+                                </div>
+                                <div class="appointment-body">
+                                    <div class="appointment-patient">${a.patient_name}</div>
+                                    <div class="appointment-phone">${a.phone}</div>
+                                </div>
+                                <span class="status-badge ${getStatusClass(a.status)}">${getStatusLabel(a.status)}</span>
+                            </div>
+                        `).join('');
+                    }
+                }
+                container.innerHTML = html || '<div class="empty"><div class="icon">📅</div>No hay citas esta semana</div>';
+            } catch (e) {
+                container.innerHTML = `<div class="empty"><div class="icon">⚠️</div>Error: ${e.message}</div>`;
+            }
+        }
+
+        // === CONTACTS ===
+        async function loadContacts() {
+            const container = document.getElementById('contacts-list');
+            container.innerHTML = '<div class="loading">Cargando...</div>';
+            try {
+                const res = await fetch('/api/contacts');
+                const data = await res.json();
+                if (data.length === 0) {
+                    container.innerHTML = '<div class="empty"><div class="icon">👥</div>No hay contactos</div>';
+                    return;
+                }
+                container.innerHTML = data.map(c => `
+                    <div class="conversation" onclick="openConversation('${c.phone}')">
+                        <div class="conversation-header">
+                            <div class="conversation-name">${c.name || '—'}</div>
+                            <div class="conversation-time">${c.total_messages} msgs</div>
+                        </div>
+                        <div class="conversation-preview">${c.phone}${c.last_classification ? ' · ' + c.last_classification : ''}</div>
+                    </div>
+                `).join('');
+            } catch (e) {
+                container.innerHTML = `<div class="empty"><div class="icon">⚠️</div>Error: ${e.message}</div>`;
+            }
+        }
+
+        async function openConversation(phone) {
+            conversationPhone = phone;
+            document.getElementById('messages-title').textContent = phone;
+            const list = document.getElementById('messages-list');
+            list.innerHTML = '<div class="loading">Cargando...</div>';
+            document.getElementById('messages-overlay').classList.add('active');
+            try {
+                const res = await fetch(`/api/messages?phone=${encodeURIComponent(phone)}&limit=50`);
+                const data = await res.json();
+                list.innerHTML = data.map(m => `
+                    <div class="message-thread ${m.direction}">
+                        <div class="text">${m.text}</div>
+                        <div class="meta">${fmtTime(m.created_at)} ${m.category ? ' · ' + m.category : ''}</div>
+                    </div>
+                `).join('');
+            } catch (e) {
+                list.innerHTML = `<div class="empty">Error: ${e.message}</div>`;
+            }
+        }
+
+        function closeMessages() {
+            document.getElementById('messages-overlay').classList.remove('active');
+        }
+
+        // === METRICS ===
+        async function loadMetrics() {
+            try {
+                const res = await fetch('/api/metrics');
+                const data = await res.json();
+                document.getElementById('metric-messages').textContent = data.messages_24h;
+                document.getElementById('metric-appointments').textContent = data.appointments_today;
+                document.getElementById('metric-contacts').textContent = data.unique_contacts_24h;
+                document.getElementById('metric-escalations').textContent = data.pending_escalations;
+            } catch (e) {
+                console.error('metrics error:', e);
+            }
+        }
+
+        // === NEW APPOINTMENT MODAL ===
+        document.getElementById('fab-new').addEventListener('click', () => {
+            document.getElementById('modal-overlay').classList.add('active');
+            // Default to today 14:30
+            const now = new Date();
+            now.setHours(14, 30, 0, 0);
+            const iso = new Date(now.getTime() - now.getTimezoneOffset() * 60000).toISOString().slice(0, 16);
+            document.getElementById('appt-datetime').value = iso;
+        });
+
+        document.getElementById('modal-cancel').addEventListener('click', () => {
+            document.getElementById('modal-overlay').classList.remove('active');
+        });
+
+        document.getElementById('appt-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const phone = document.getElementById('appt-phone').value.trim();
+            const name = document.getElementById('appt-name').value.trim();
+            const datetime = document.getElementById('appt-datetime').value;
+            const service = document.getElementById('appt-service').value;
+            const notes = document.getElementById('appt-notes').value;
+            const iso = new Date(datetime).toISOString();
+            try {
+                const res = await fetch('/api/appointments', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        phone, patient_name: name, scheduled_at: iso,
+                        duration_minutes: 60, service, notes,
+                    }),
+                });
+                if (res.ok) {
+                    document.getElementById('modal-overlay').classList.remove('active');
+                    document.getElementById('appt-form').reset();
+                    loadAppointments(fmtDate(currentDate));
+                }
+            } catch (e) {
+                alert('Error: ' + e.message);
+            }
+        });
+
+        // === INIT ===
+        renderDayPicker();
+        loadAppointments(fmtDate(currentDate));
+        loadMetrics();
+        setInterval(loadMetrics, 30000);
+    </script>
+</body>
+</html>
