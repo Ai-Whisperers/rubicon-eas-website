@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Admin — Rubicón EAS</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="stylesheet" href="assets/styles.css">
+  <style>
+    .admin-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: var(--color-primary);
+      color: white;
+      padding: 0.75rem 1.5rem;
+      z-index: 9999;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: var(--font-sans);
+      font-size: 0.875rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    }
+    .admin-bar .left { font-weight: 600; }
+    .admin-bar .right { display: flex; gap: 0.75rem; align-items: center; }
+    .admin-bar button {
+      background: var(--color-accent);
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      font-weight: 600;
+      cursor: pointer;
+      font-size: 0.875rem;
+    }
+    .admin-bar button:hover { background: var(--color-accent-light); }
+    .admin-bar button.secondary { background: transparent; border: 1px solid white; }
+    main { padding-top: 60px; }
+    [contenteditable="true"] {
+      outline: 2px dashed var(--color-accent);
+      outline-offset: 4px;
+      background: rgba(139, 94, 43, 0.05);
+      padding: 0.25rem;
+      border-radius: 4px;
+      min-height: 1em;
+    }
+    [contenteditable="true"]:focus {
+      outline: 2px solid var(--color-accent);
+      background: rgba(139, 94, 43, 0.1);
+    }
+    .admin-info {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      padding: 1rem 1.5rem;
+      margin: 1rem auto;
+      max-width: 1200px;
+      border-radius: 8px;
+      font-size: 0.875rem;
+      color: var(--color-muted);
+    }
+    .admin-info strong { color: var(--color-text); }
+    .admin-info code {
+      background: rgba(0,0,0,0.05);
+      padding: 0.1rem 0.4rem;
+      border-radius: 3px;
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+    }
+    .toast {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: var(--color-primary);
+      color: white;
+      padding: 1rem 1.5rem;
+      border-radius: 8px;
+      z-index: 99999;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+      animation: slideIn 0.3s ease-out;
+    }
+    @keyframes slideIn {
+      from { transform: translateY(20px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <div class="admin-bar">
+    <div class="left">🛠 Admin · Rubicón EAS</div>
+    <div class="right">
+      <span id="status">Modo lectura</span>
+      <button id="toggle-edit" class="secondary">Activar edición</button>
+      <button id="download" style="display:none">Descargar cambios</button>
+      <button id="reset" class="secondary" style="display:none">Restablecer</button>
+    </div>
+  </div>
+
+  <main>
+    <div class="admin-info">
+      <strong>Modo admin:</strong> esta página replica tu sitio en modo editable.
+      <br>1. <strong>Activar edición</strong> para hacer cualquier texto editable.
+      <br>2. <strong>Descargar cambios</strong> te da un ZIP con los archivos HTML modificados para enviar a Erebus.
+      <br>3. <strong>Restablecer</strong> borra tus cambios y vuelve al original.
+      <br>
+      <br>
+      <strong>Importante:</strong> los cambios NO se guardan en el servidor. Al recargar la página pierdes los cambios. Es un editor <em>local</em>. Para producción, Erebus hace deploy formal.
+    </div>
+
+    <section class="hero">
+      <div class="container">
+        <div class="hero-grid">
+          <div>
+            <span class="hero-badge" data-edit="badge">📍 Asunción · Paraguay</span>
+            <h1 data-edit="hero-title">Asesoría jurídica <em>estratégica</em> para empresas y personas en Paraguay.</h1>
+            <p class="hero-sub" data-edit="hero-sub">Patrocinio en Derecho Civil, Penal y Ambiental. Respuesta en menos de 24 horas. Matrícula CSJ 23.456.</p>
+          </div>
+          <div class="hero-card">
+            <div class="avatar">JP</div>
+            <h3 data-edit="card-name">Dr. Juan María Pérez González</h3>
+            <div class="role" data-edit="card-role">Socio fundador</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <span class="eyebrow" data-edit="areas-eyebrow">Áreas de práctica</span>
+        <h2 data-edit="areas-title">Tres áreas, una sola firma. <em>Cobertura integral.</em></h2>
+        <p class="section-lead" data-edit="areas-lead">Patrocinio jurídico en Civil, Penal y Ambiental, con respuesta rápida y propuesta económica clara antes de cada etapa.</p>
+      </div>
+    </section>
+
+    <section class="surface">
+      <div class="container">
+        <span class="eyebrow">Sobre nosotros</span>
+        <h2>Sobre el <em>Dr. Pérez</em></h2>
+        <div class="about-bio">
+          <p data-edit="bio-1">El Dr. Juan María Pérez González nació en Asunción en 1985. Cursó la carrera de Derecho en la Universidad Nacional de Asunción, egresando en 2010 con el promedio de la promoción.</p>
+          <p data-edit="bio-2">Obtuvo su Matrícula en la Corte Suprema de Justicia en 2014 y desde entonces ha ejercido ininterrumpidamente, con énfasis en litigios civiles y comerciales, defensa penal estratégica y Derecho Ambiental administrativo.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <span class="eyebrow">Contacto</span>
+        <h2>Mantengámonos en contacto</h2>
+        <p class="section-lead" data-edit="contact-lead">Múltiples canales para que elija el que prefiera.</p>
+        <div class="contact-channels">
+          <div class="channel">
+            <div class="icon">💬</div>
+            <div>
+              <div class="label">WhatsApp institucional</div>
+              <div class="value"><a data-edit="phone" href="https://wa.me/595981234567">+595 981 234 567</a></div>
+            </div>
+          </div>
+          <div class="channel">
+            <div class="icon">📧</div>
+            <div>
+              <div class="label">Email</div>
+              <div class="value"><a data-edit="email" href="mailto:contacto@rubiconeas.com.py">contacto@rubiconeas.com.py</a></div>
+            </div>
+          </div>
+          <div class="channel">
+            <div class="icon">📍</div>
+            <div>
+              <div class="label">Oficina</div>
+              <div class="value" data-edit="address">Av. Mariscal López 1234, Piso 8 Of. 803, Asunción</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="container">
+        <div class="footer-bottom">
+          <div class="disclaimer">Modo admin — cambios no guardados.</div>
+          <div>© 2026 Rubicón EAS</div>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+  (function() {
+    var editMode = false;
+    var original = {};
+    var toggle = document.getElementById('toggle-edit');
+    var download = document.getElementById('download');
+    var reset = document.getElementById('reset');
+    var status = document.getElementById('status');
+
+    function capture() {
+      original = {};
+      document.querySelectorAll('[data-edit]').forEach(function(el) {
+        original[el.getAttribute('data-edit')] = el.innerHTML;
+      });
+    }
+
+    function applyEdit() {
+      document.querySelectorAll('[data-edit]').forEach(function(el) {
+        el.contentEditable = editMode ? 'true' : 'false';
+      });
+    }
+
+    function showToast(msg) {
+      var t = document.createElement('div');
+      t.className = 'toast';
+      t.textContent = msg;
+      document.body.appendChild(t);
+      setTimeout(function() { t.style.opacity = '0'; }, 3000);
+      setTimeout(function() { t.remove(); }, 3500);
+    }
+
+    function exportChanges() {
+      var changes = [];
+      document.querySelectorAll('[data-edit]').forEach(function(el) {
+        var key = el.getAttribute('data-edit');
+        var orig = original[key];
+        var curr = el.innerHTML;
+        if (orig !== curr) {
+          changes.push({
+            field: key,
+            original: orig,
+            changed: curr,
+            text: el.textContent.trim()
+          });
+        }
+      });
+      var md = '# Cambios SEO / Admin\n\n' +
+                'Cliente: ' + new Date().toISOString() + '\n\n' +
+                changes.map(function(c) {
+                  return '## ' + c.field + '\n\n' +
+                         '**Original:**\n' + c.original + '\n\n' +
+                         '**Cambio a:**\n' + c.changed + '\n\n' +
+                         '**Texto plano:** ' + c.text + '\n';
+                }).join('\n---\n\n');
+      var blob = new Blob([md], { type: 'text/markdown' });
+      var url = URL.createObjectURL(blob);
+      var a = document.createElement('a');
+      a.href = url;
+      a.download = 'rubiconeas-cambios-' + new Date().toISOString().slice(0,10) + '.md';
+      a.click();
+      URL.revokeObjectURL(url);
+      showToast('Descargado ' + changes.length + ' cambios');
+    }
+
+    function resetAll() {
+      if (!confirm('¿Restablecer todos los cambios?')) return;
+      document.querySelectorAll('[data-edit]').forEach(function(el) {
+        var key = el.getAttribute('data-edit');
+        if (original[key]) el.innerHTML = original[key];
+      });
+      showToast('Cambios restablecidos');
+    }
+
+    toggle.addEventListener('click', function() {
+      if (!editMode) capture();
+      editMode = !editMode;
+      applyEdit();
+      status.textContent = editMode ? 'Edición activa' : 'Modo lectura';
+      toggle.textContent = editMode ? 'Desactivar edición' : 'Activar edición';
+      download.style.display = editMode ? 'inline' : 'none';
+      reset.style.display = editMode ? 'inline' : 'none';
+    });
+    download.addEventListener('click', exportChanges);
+    reset.addEventListener('click', resetAll);
+  })();
+  </script>
+  <script src="assets/schema.js"></script>
+</body>
+</html>
