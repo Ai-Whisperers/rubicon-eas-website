@@ -1,0 +1,227 @@
+{
+  "section": "06 · Web — objetivos, audiencia, KPIs",
+  "scope": "A quién dirige, qué objetivos, qué conversiones",
+  "questions": [
+    {
+      "id": "WEB-01",
+      "category": "Audiencia",
+      "question": "Audiencia primaria: ¿personas físicas (PFA) o personas jurídicas (PJA)?",
+      "type": "select",
+      "options": ["Solo PFA", "Solo PJA", "PFA + PJA"],
+      "required": true
+    },
+    {
+      "id": "WEB-02",
+      "category": "Audiencia",
+      "question": "Perfil de la persona física cliente (edad, nivel educativo, urgencia, presupuesto estimado).",
+      "type": "textarea",
+      "required": true
+    },
+    {
+      "id": "WEB-03",
+      "category": "Audiencia",
+      "question": "Perfil de la persona jurídica cliente (PyME, corporation, multinacional, sector privado, público, ONG, gremial).",
+      "type": "textarea",
+      "required": true
+    },
+    {
+      "id": "WEB-04",
+      "category": "Audiencia",
+      "question": "Tipo de cliente de mayor valor (ticket alto).",
+      "type": "textarea",
+      "required": true
+    },
+    {
+      "id": "WEB-05",
+      "category": "Audiencia",
+      "question": "Ubicación geográfica prioritaria de la audiencia (Asunción, todo el país, MERCOSUR, mundo).",
+      "type": "textarea",
+      "required": true
+    },
+    {
+      "id": "WEB-06",
+      "category": "Audiencia",
+      "question": "Idioma de la audiencia meta (ES, EN, PT).",
+      "type": "tags",
+      "required": true
+    },
+    {
+      "id": "WEB-07",
+      "category": "Audiencia",
+      "question": "Idioma del sitio web propuesto (MVP).",
+      "type": "tags",
+      "required": true,
+      "default": ["Español"]
+    },
+    {
+      "id": "WEB-08",
+      "category": "Audiencia",
+      "question": "¿El sitio necesita sección de accesibilidad (fonte ajustable, alto contraste, lectura)?",
+      "type": "boolean",
+      "required": true
+    },
+    {
+      "id": "WEB-09",
+      "category": "Audiencia",
+      "question": "¿Necesita versión para clientes con daltonismo, sordera, motriz-visual reducida?",
+      "type": "textarea",
+      "required": false
+    },
+    {
+      "id": "WEB-10",
+      "category": "Audiencia",
+      "question": "Persona primaria: describa un cliente 'tipo' con nombre, edad, problema, presupuesto, urgencia.",
+      "type": "textarea",
+      "required": true,
+      "hint": "Marcela, 38, divorciada, ejecución de sentencia de alimentos adeudados, presupuesto medio, alta urgencia."
+    },
+    {
+      "id": "WEB-11",
+      "category": "Audiencia",
+      "question": "Persona secundaria: otra descripción equivalente.",
+      "type": "textarea",
+      "required": true
+    },
+    {
+      "id": "WEB-12",
+      "category": "Audiencia",
+      "question": "Persona terciaria: cliente PJA (PyME, corporativo, ONG).",
+      "type": "textarea",
+      "required": true
+    },
+    {
+      "id": "WEB-13",
+      "category": "Objetivos",
+      "question": "Objetivo principal del sitio (elige uno).",
+      "type": "select",
+      "options": ["Captar clientes", "Captar socios", "Captar casos complejos", "Captar prensa/posicionamiento", "Captar empleados", "Vender intangibles (publicaciones, libros)"],
+      "required": true
+    },
+    {
+      "id": "WEB-14",
+      "category": "Objetivos",
+      "question": "Si es captación de clientes, ¿Civil, Penal o Ambiental cuál principalmente?",
+      "type": "select",
+      "options": ["Civil", "Penal", "Ambiental", "Igualdad"],
+      "required": true
+    },
+    {
+      "id": "WEB-15",
+      "category": "Objetivos",
+      "question": "KPI primario: ¿cantidad de leads/mes, ratio de cierre, ticket promedio, posicionamientos SEO, citas agendadas?",
+      "type": "textarea",
+      "required": true,
+      "example": "20 leads/mes · 30% cierre · ticket G. 8M · 10 agendar"
+    },
+    {
+      "id": "WEB-16",
+      "category": "Objetivos",
+      "question": "Presupuesto mensual de leads: ¿cuánto vale para la firma un cliente Pro Bono vs. uno Corporativo?",
+      "type": "textarea",
+      "required": false
+    },
+    {
+      "id": "WEB-17",
+      "category": "Objetivos",
+      "question": "Categorías de blogs/artículos que se quieren mantener como Lead Magnet.",
+      "type": "tags",
+      "required": true,
+      "example": "Derecho Civil · Derecho Penal · Derecho Ambiental · Artículos de opinión · Preguntas frecuentes"
+    },
+    {
+      "id": "WEB-18",
+      "category": "Objetivos",
+      "question": "Nombre de la newsletter de la firma (si existe).",
+      "type": "text",
+      "required": false
+    },
+    {
+      "id": "WEB-19",
+      "category": "Objetivos",
+      "question": "Frecuencia de actualización de la web (inmediatamente, diaria, semanal, mensual).",
+      "type": "select",
+      "options": ["Diaria", "Semanal", "Mensual", "Solo eventos"],
+      "required": true
+    },
+    {
+      "id": "WEB-20",
+      "category": "Objetivos",
+      "question": "Si la web tendrá blog, ¿quiénes serán los autores?",
+      "type": "text",
+      "required": false,
+      "example": "Dr. Juan Pérez — solo él · Equipo — 2-3 firmantes"
+    },
+    {
+      "id": "WEB-21",
+      "category": "Funcionalidades",
+      "question": "Lista de funcionalidades deseadas (Blog, Casos, Newsletter, Calendly, Chat, Calculadora honorarios, etc.).",
+      "type": "tags",
+      "required": true,
+      "options": ["Blog", "Casos / Portfolio", "Newsletter", "Calendly", "Chat en vivo", "Calculadora de honorarios", "Pagos online", "Seguimiento de caso del cliente", "Document signing", "Comparador de servicios"]
+    },
+    {
+      "id": "WEB-22",
+      "category": "Funcionalidades",
+      "question": "¿Tendrá formulario para captar CVs de abogados/procuradores?",
+      "type": "boolean",
+      "required": false
+    },
+    {
+      "id": "WEB-23",
+      "category": "Funcionalidades",
+      "question": "¿Tendrá área de recursos (descarga de plantillas, infografías, dossiers)?",
+      "type": "boolean",
+      "required": false
+    },
+    {
+      "id": "WEB-24",
+      "category": "Funcionalidades",
+      "question": "¿Tendrá portal de cliente para seguimiento de caso (login con código)?",
+      "type": "boolean",
+      "required": false
+    },
+    {
+      "id": "WEB-25",
+      "category": "Funcionalidades",
+      "question": "¿Tendrá pasarela de pagos online para honorarios?",
+      "type": "boolean",
+      "required": false
+    },
+    {
+      "id": "WEB-26",
+      "category": "Funcionalidades",
+      "question": "Si tiene calculadora de honorarios, ¿qué variables? (cantidad de audiencias, tipo de proceso, etc.)",
+      "type": "textarea",
+      "required": false
+    },
+    {
+      "id": "WEB-27",
+      "category": "Funcionalidades",
+      "question": "Si tiene chat en vivo, ¿será bot, humano, o ambos?",
+      "type": "select",
+      "options": ["Bot", "Humano", "Bot + escalado a humano"],
+      "required": false
+    },
+    {
+      "id": "WEB-28",
+      "category": "Funcionalidades",
+      "question": "Si usa bot, ¿debe despedirse con un mensaje a un humano?",
+      "type": "boolean",
+      "required": false
+    },
+    {
+      "id": "WEB-29",
+      "category": "Funcionalidades",
+      "question": "Mapa del sitio propuesto (lista de páginas).",
+      "type": "textarea",
+      "required": true
+    },
+    {
+      "id": "WEB-30",
+      "category": "Funcionalidades",
+      "question": "Excluir del MVP (lista de cosas que no se quieren en esta versión).",
+      "type": "textarea",
+      "required": false
+    }
+  ]
+}

@@ -1,0 +1,224 @@
+{
+  "section": "04 · Portfolio, casos y resultados",
+  "scope": "Casos anonimizados, resultados, métricas",
+  "questions": [
+    {
+      "id": "PO-01",
+      "category": "Casos publicados",
+      "question": "¿Cuántos casos anonimizados se quieren publicar en la web (mínimo 0, máximo 30)?",
+      "type": "number",
+      "required": true,
+      "default": 6
+    },
+    {
+      "id": "PO-02",
+      "category": "Casos publicados",
+      "question": "Idioma en que se publican los casos: ¿solo español, o español + inglés para casos internacionales?",
+      "type": "select",
+      "options": ["Solo español", "Español + Inglés", "Español + Portugués"],
+      "required": true
+    },
+    {
+      "id": "PO-03",
+      "category": "Casos publicados",
+      "question": "Estructura preferida para los casos: ¿tarjetas con resumen, o página completa por caso?",
+      "type": "select",
+      "options": ["Solo tarjetas", "Tarjetas + ficha completa (corto)", "Tarjetas + ficha completa (larga)", "Solo ficha completa"],
+      "required": true
+    },
+    {
+      "id": "PO-04",
+      "category": "Casos publicados",
+      "question": "¿Los casos deben mostrar el resultado final (sentencia, acuerdo, monto) o solo el proceso?",
+      "type": "select",
+      "options": ["Solo resultado", "Solo proceso", "Ambos"],
+      "required": true
+    },
+    {
+      "id": "PO-05",
+      "category": "Casos publicados",
+      "question": "Caso 1 — Civil — Área, tipo de cliente, jurisdicción, año, resumen, resultado.",
+      "type": "textarea",
+      "required": true
+    },
+    {
+      "id": "PO-06",
+      "category": "Casos publicados",
+      "question": "Caso 2 — Civil — Detalles.",
+      "type": "textarea",
+      "required": true
+    },
+    {
+      "id": "PO-07",
+      "category": "Casos publicados",
+      "question": "Caso 3 — Penal — Detalles.",
+      "type": "textarea",
+      "required": true
+    },
+    {
+      "id": "PO-08",
+      "category": "Casos publicados",
+      "question": "Caso 4 — Penal — Detalles.",
+      "type": "textarea",
+      "required": true
+    },
+    {
+      "id": "PO-09",
+      "category": "Casos publicados",
+      "question": "Caso 5 — Ambiental — Detalles.",
+      "type": "textarea",
+      "required": true
+    },
+    {
+      "id": "PO-10",
+      "category": "Casos publicados",
+      "question": "Caso 6 — Ambiental — Detalles.",
+      "type": "textarea",
+      "required": true
+    },
+    {
+      "id": "PO-11",
+      "category": "Casos publicados",
+      "question": "Si tiene más casos, añada hasta 24 adicionales uno por línea.",
+      "type": "textarea",
+      "required": false
+    },
+    {
+      "id": "PO-12",
+      "category": "Resoluciones",
+      "question": "Si las resoluciones judiciales son públicas, ¿desea incluir enlaces a los textos de sentencias relevantes?",
+      "type": "boolean",
+      "required": false
+    },
+    {
+      "id": "PO-13",
+      "category": "Resoluciones",
+      "question": "Lista de sentencias o resoluciones hito (tribunal, año, número, carátula, temática).",
+      "type": "textarea",
+      "required": false
+    },
+    {
+      "id": "PO-14",
+      "category": "Métricas",
+      "question": "Cantidad aproximada de casos atendidos desde el inicio del ejercicio profesional.",
+      "type": "number",
+      "required": true,
+      "example": 350
+    },
+    {
+      "id": "PO-15",
+      "category": "Métricas",
+      "question": "Cantidad aproximada de casos atendidos en los últimos 5 años.",
+      "type": "number",
+      "required": true
+    },
+    {
+      "id": "PO-16",
+      "category": "Métricas",
+      "question": "Tasa de éxito aproximada en casos Civiles (sentencias favorables, acuerdos).",
+      "type": "text",
+      "required": false,
+      "example": "75% casos favorables"
+    },
+    {
+      "id": "PO-17",
+      "category": "Métricas",
+      "question": "Tasa de éxito aproximada en casos Penales (absoluciones, sobreseimientos, atenuaciones).",
+      "type": "text",
+      "required": false
+    },
+    {
+      "id": "PO-18",
+      "category": "Métricas",
+      "question": "Tasa de éxito aproximada en casos Ambientales (resoluciones favorables, acuerdos administrativos).",
+      "type": "text",
+      "required": false
+    },
+    {
+      "id": "PO-19",
+      "category": "Métricas",
+      "question": "Número de jurisdicciones o tribunales en los que litiga habitualmente.",
+      "type": "number",
+      "required": true,
+      "default": 1
+    },
+    {
+      "id": "PO-20",
+      "category": "Métricas",
+      "question": "Duración promedio de un caso Civil, Penal y Ambiental (meses).",
+      "type": "textarea",
+      "required": false
+    },
+    {
+      "id": "PO-21",
+      "category": "Testimonios",
+      "question": "¿Tiene testimonios de clientes que podamos publicar (con consentimiento escrito)?",
+      "type": "boolean",
+      "required": true
+    },
+    {
+      "id": "PO-22",
+      "category": "Testimonios",
+      "question": "Si la respuesta anterior es sí, indique numero de testimonios y texto resumido.",
+      "type": "textarea",
+      "required": false
+    },
+    {
+      "id": "PO-23",
+      "category": "Testimonios",
+      "question": "Si no hay testimonios, ¿autoriza a publicar testimonios 'modelo' claramente marcados como ilustrativos?",
+      "type": "boolean",
+      "required": true
+    },
+    {
+      "id": "PO-24",
+      "category": "Reputación",
+      "question": "Indique URL de la ficha de Google Business Profile (si existe).",
+      "type": "url",
+      "required": false
+    },
+    {
+      "id": "PO-25",
+      "category": "Reputación",
+      "question": "Indique URL de la página de Facebook (si existe).",
+      "type": "url",
+      "required": false
+    },
+    {
+      "id": "PO-26",
+      "category": "Reputación",
+      "question": "Indique URL del perfil de Instagram (si existe).",
+      "type": "url",
+      "required": false
+    },
+    {
+      "id": "PO-27",
+      "category": "Reputación",
+      "question": "Indique URL del perfil de LinkedIn de la firma (si existe).",
+      "type": "url",
+      "required": false
+    },
+    {
+      "id": "PO-28",
+      "category": "Reputación",
+      "question": "Reseñas en Google: cantidad y nota promedio.",
+      "type": "text",
+      "required": false,
+      "example": "23 reseñas · 4.8/5"
+    },
+    {
+      "id": "PO-29",
+      "category": "Reputación",
+      "question": "Menciones en medios o entrevistas (adjuntar links si están disponibles).",
+      "type": "textarea",
+      "required": false
+    },
+    {
+      "id": "PO-30",
+      "category": "Reputación",
+      "question": "Publicaciones propias o de terceros sobre el abogado/firma (links).",
+      "type": "textarea",
+      "required": false
+    }
+  ]
+}

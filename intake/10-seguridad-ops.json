@@ -1,0 +1,242 @@
+{
+  "section": "10 · Seguridad, infraestructura y operaciones",
+  "scope": "Hosting, dominio, backups, monitoreo, continuidad",
+  "questions": [
+    {
+      "id": "OPS-01",
+      "category": "Hosting",
+      "question": "Hosting preferido (CF Pages, Vercel, Hostinger, Paraguay local, servidores propios).",
+      "type": "select",
+      "options": ["Cloudflare Pages", "Vercel", "Hosting local Paraguay", "Servidor propio", "ainda n\u00e3o definido"],
+      "required": true
+    },
+    {
+      "id": "OPS-02",
+      "category": "Hosting",
+      "question": "Si es servidor propio, indique IP interna (sandbox no reachable a redes internas).",
+      "type": "text",
+      "required": false
+    },
+    {
+      "id": "OPS-03",
+      "category": "Hosting",
+      "question": "Proveedor de DNS (Cloudflare, NIC Paraguay, GoDaddy, etc.).",
+      "type": "select",
+      "options": ["Cloudflare", "NIC Paraguay", "GoDaddy", "Namecheap", "Otro"],
+      "required": true
+    },
+    {
+      "id": "OPS-04",
+      "category": "Hosting",
+      "question": "Dominio(s) a registrar/usar (sin www y con www).",
+      "type": "text",
+      "required": true,
+      "example": "rubiconeas.com.py · www.rubiconeas.com.py"
+    },
+    {
+      "id": "OPS-05",
+      "category": "Hosting",
+      "question": "Subdominios para usos espec\u00edficos (blog., portal., facturacion.).",
+      "type": "text",
+      "required": false
+    },
+    {
+      "id": "OPS-06",
+      "category": "Hosting",
+      "question": "Cuenta de CF (Cloudflare) \u2014 \u00bfse comparte un token de API o se opera los DNS desde el panel?",
+      "type": "select",
+      "options": ["Token API", "Panel", "Otro"],
+      "required": true
+    },
+    {
+      "id": "OPS-07",
+      "category": "Hosting",
+      "question": "Proveedor de correo electr\u00f3nico corporativo (Google Workspace, Microsoft 365, Zoho, hosting local).",
+      "type": "select",
+      "options": ["Google Workspace", "Microsoft 365", "Zoho", "Hosting local", "Otro"],
+      "required": true
+    },
+    {
+      "id": "OPS-08",
+      "category": "Hosting",
+      "question": "Plantilla de correo corporativo (webmail, app, IMAP/SMTP).",
+      "type": "select",
+      "options": ["Gmail/Outlook web + app", "IMAP/SMTP", "Mixto"],
+      "required": true
+    },
+    {
+      "id": "OPS-09",
+      "category": "Hosting",
+      "question": "Indique los registros MX actuales o el proveedor del buz\u00f3n.",
+      "type": "text",
+      "required": false
+    },
+    {
+      "id": "OPS-10",
+      "category": "Hosting",
+      "question": "Tiempo deseado de carga p\u00e1gina principal (segundos).",
+      "type": "number",
+      "required": true,
+      "default": 2
+    },
+    {
+      "id": "OPS-11",
+      "category": "Hosting",
+      "question": "Tiempo deseado de carga p\u00e1gina legal (P95, segundos).",
+      "type": "number",
+      "required": true,
+      "default": 3
+    },
+    {
+      "id": "OPS-12",
+      "category": "Hosting",
+      "question": "Concurrentes usuarios previstos en pico (ej. fin de semana).",
+      "type": "number",
+      "required": true,
+      "default": 10
+    },
+    {
+      "id": "OPS-13",
+      "category": "Seguridad",
+      "question": "Certificado TLS requerido (Let's Encrypt, comercial, EV).",
+      "type": "select",
+      "options": ["Let's Encrypt (gratis)", "Comercial DV", "Comercial OV", "Comercial EV"],
+      "required": true
+    },
+    {
+      "id": "OPS-14",
+      "category": "Seguridad",
+      "question": "WAF / DDoS protection (Cloudflare Pro, AWS Shield, etc.).",
+      "type": "select",
+      "options": ["Cloudflare Pro", "Cloudflare Free", "AWS Shield", "Otra"],
+      "required": true
+    },
+    {
+      "id": "OPS-15",
+      "category": "Seguridad",
+      "question": "Rate limiting en formulario de contacto (intentos por IP / hora).",
+      "type": "number",
+      "required": true,
+      "default": 5
+    },
+    {
+      "id": "OPS-16",
+      "category": "Seguridad",
+      "question": "Honeypot o captcha en el formulario (reCAPTCHA v3, hCaptcha, Turnstile, CF Turnstile).",
+      "type": "select",
+      "options": ["Cloudflare Turnstile", "reCAPTCHA v3", "hCaptcha", "Sin captcha"],
+      "required": true,
+      "default": "Cloudflare Turnstile"
+    },
+    {
+      "id": "OPS-17",
+      "category": "Seguridad",
+      "question": "CORS — pol\u00edtica de uso de la API del sitio (p\u00fablica, autenticada, mixta).",
+      "type": "select",
+      "options": ["P\u00fablica", "Autenticada", "Mixta"],
+      "required": true
+    },
+    {
+      "id": "OPS-18",
+      "category": "Seguridad",
+      "question": "CSP, HSTS, X-Frame-Options — \u00bfse quiere configurar?",
+      "type": "boolean",
+      "required": true,
+      "default": true
+    },
+    {
+      "id": "OPS-19",
+      "category": "Seguridad",
+      "question": "Auditor\u00eda de seguridad anual / pentest (frecuencia).",
+      "type": "select",
+      "options": ["Trimestral", "Semestral", "Anual", "No"],
+      "required": true
+    },
+    {
+      "id": "OPS-20",
+      "category": "Backups",
+      "question": "Backup del sitio (frecuencia).",
+      "type": "select",
+      "options": ["Cada 1 hora", "Cada 6 horas", "Diario", "Semanal"],
+      "required": true
+    },
+    {
+      "id": "OPS-21",
+      "category": "Backups",
+      "question": "Backup de la base de datos de leads (frecuencia).",
+      "type": "select",
+      "options": ["Cada 1 hora", "Cada 6 horas", "Diario", "Semanal"],
+      "required": true
+    },
+    {
+      "id": "OPS-22",
+      "category": "Backups",
+      "question": "Cantidad de generaciones retenidas.",
+      "type": "number",
+      "required": true,
+      "default": 30
+    },
+    {
+      "id": "OPS-23",
+      "category": "Backups",
+      "question": "Disaster Recovery — tiempo m\u00e1ximo de downtime aceptable (horas).",
+      "type": "number",
+      "required": true,
+      "default": 4
+    },
+    {
+      "id": "OPS-24",
+      "category": "Backups",
+      "question": "Plan de respuesta a incidentes (contactos, procedimiento).",
+      "type": "textarea",
+      "required": false
+    },
+    {
+      "id": "OPS-25",
+      "category": "Monitoreo",
+      "question": "Uptime monitor (UptimeRobot, BetterStack, Better Uptime, Pingdom).",
+      "type": "select",
+      "options": ["UptimeRobot", "BetterStack", "Better Uptime", "Pingdom", "Otro"],
+      "required": true
+    },
+    {
+      "id": "OPS-26",
+      "category": "Monitoreo",
+      "question": "Notificaciones de ca\u00edda (canal: email, SMS, Slack, WhatsApp).",
+      "type": "tags",
+      "required": true,
+      "example": "Email · WhatsApp institucional"
+    },
+    {
+      "id": "OPS-27",
+      "category": "Monitoreo",
+      "question": "M\u00e9tricas a monitorear (visitas, conversiones, errores).",
+      "type": "tags",
+      "required": true,
+      "example": "Visitas, sesiones, leads, errores 5xx, errores JS"
+    },
+    {
+      "id": "OPS-28",
+      "category": "Monitoreo",
+      "question": "Dashboard de m\u00e9tricas (Grafana, Looker, Plausible, Mixpanel).",
+      "type": "select",
+      "options": ["Plausible", "Grafana", "Looker", "Mixpanel", "Otro"],
+      "required": true
+    },
+    {
+      "id": "OPS-29",
+      "category": "Monitoreo",
+      "question": "Alertas activas — qu\u00e9 dispara aviso.",
+      "type": "textarea",
+      "required": true,
+      "example": "Lead conversion drop >30% · uptime <99.9% · 5xx error rate >1%"
+    },
+    {
+      "id": "OPS-30",
+      "category": "Operativa",
+      "question": "Workflow de despliegue — qui\u00e9n aprueba el merge a main y bajo qu\u00e9 criterio.",
+      "type": "textarea",
+      "required": true
+    }
+  ]
+}

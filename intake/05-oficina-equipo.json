@@ -1,0 +1,225 @@
+{
+  "section": "05 · Oficina, equipo y operativa",
+  "scope": "Dirección física, equipo de trabajo, infraestructura, horarios",
+  "questions": [
+    {
+      "id": "OF-01",
+      "category": "Ubicación",
+      "question": "Dirección completa de la oficina principal (calle, número, ciudad, departamento).",
+      "type": "textarea",
+      "required": true,
+      "example": "Av. Mariscal López 1234, Piso 5 Of. 502, Asunción, Paraguay"
+    },
+    {
+      "id": "OF-02",
+      "category": "Ubicación",
+      "question": "Indique Google Maps Plus Code o latitud/longitud.",
+      "type": "text",
+      "required": false
+    },
+    {
+      "id": "OF-03",
+      "category": "Ubicación",
+      "question": "Tiene sucursales o representaciones en el interior del país? Indique dirección y referencias.",
+      "type": "textarea",
+      "required": false
+    },
+    {
+      "id": "OF-04",
+      "category": "Ubicación",
+      "question": "El local es propio, alquilado, compartido con otra firma, o coworking?",
+      "type": "select",
+      "options": ["Propio", "Alquilado", "Compartido", "Coworking", "Virtual"],
+      "required": true
+    },
+    {
+      "id": "OF-05",
+      "category": "Ubicación",
+      "question": "Indique horario de atención al público en la oficina.",
+      "type": "text",
+      "required": true
+    },
+    {
+      "id": "OF-06",
+      "category": "Ubicación",
+      "question": "Geografía cubierta para desplazar a juicios: ¿solo Asunción? ¿todo el país? ¿países limítrofes?",
+      "type": "textarea",
+      "required": true
+    },
+    {
+      "id": "OF-07",
+      "category": "Equipo",
+      "question": "Cantidad de abogados en la firma (incluido el fundador).",
+      "type": "number",
+      "required": true
+    },
+    {
+      "id": "OF-08",
+      "category": "Equipo",
+      "question": "Cantidad de procuradores, escribanos y pasantes.",
+      "type": "number",
+      "required": false
+    },
+    {
+      "id": "OF-09",
+      "category": "Equipo",
+      "question": "Cantidad de personal administrativo y de secretaría.",
+      "type": "number",
+      "required": false
+    },
+    {
+      "id": "OF-10",
+      "category": "Equipo",
+      "question": "¿Hay pasantes o abogados junior que se quieran incluir en el Equipo (publicación con foto)?",
+      "type": "textarea",
+      "required": false
+    },
+    {
+      "id": "OF-11",
+      "category": "Equipo",
+      "question": "Para cada profesional distinto al fundador, indique: nombre, cargo, formación, especialización, matrícula, foto.",
+      "type": "textarea",
+      "required": false
+    },
+    {
+      "id": "OF-12",
+      "category": "Equipo",
+      "question": "¿Quién será el contacto principal de la firma para leads que llegan a la web?",
+      "type": "text",
+      "required": true
+    },
+    {
+      "id": "OF-13",
+      "category": "Equipo",
+      "question": "Número de WhatsApp dedicado para leads (puede ser distinto del personal).",
+      "type": "tel",
+      "required": true,
+      "example": "+595 981 234 567"
+    },
+    {
+      "id": "OF-14",
+      "category": "Equipo",
+      "question": "Este WhatsApp estará en una instancia Evolution API propia o se reenviará a un celular personal?",
+      "type": "select",
+      "options": ["Instancia Evolution dedicada", "Reenvío a celular", "Mixto"],
+      "required": true
+    },
+    {
+      "id": "OF-15",
+      "category": "Equipo",
+      "question": "Correo de contacto institucional (ej: contacto@rubiconeas.com.py).",
+      "type": "email",
+      "required": true
+    },
+    {
+      "id": "OF-16",
+      "category": "Equipo",
+      "question": "Correo secundario o de despacho (ej: estudio@rubiconeas.com.py).",
+      "type": "email",
+      "required": false
+    },
+    {
+      "id": "OF-17",
+      "category": "Equipo",
+      "question": "Teléfono fijo de la oficina (con característica).",
+      "type": "tel",
+      "required": false
+    },
+    {
+      "id": "OF-18",
+      "category": "Equipo",
+      "question": "Customer 360: ¿hay una persona (sumar) que se encargue de la web, contestar mensajes y agendar?",
+      "type": "boolean",
+      "required": true
+    },
+    {
+      "id": "OF-19",
+      "category": "Equipo",
+      "question": "SLA de respuesta: indique plazo máximo de respuesta a formulario web (horas hábiles).",
+      "type": "number",
+      "required": true,
+      "example": 24
+    },
+    {
+      "id": "OF-20",
+      "category": "Equipo",
+      "question": "SLA de respuesta a WhatsApp (minutos).",
+      "type": "number",
+      "required": true,
+      "example": 60
+    },
+    {
+      "id": "OF-21",
+      "category": "Equipo",
+      "question": "SLA de respuesta a correo (horas hábiles).",
+      "type": "number",
+      "required": true
+    },
+    {
+      "id": "OF-22",
+      "category": "Operativa",
+      "question": "Sistema de gestión documental: ¿usa algún software (LeanKit, Legal One, simple carpeta, etc.)?",
+      "type": "textarea",
+      "required": false
+    },
+    {
+      "id": "OF-23",
+      "category": "Operativa",
+      "question": "Sistema de facturación: ¿cuál usa? (FacturaSend, Hakuna, Excel, simple recibo, etc.)",
+      "type": "textarea",
+      "required": false
+    },
+    {
+      "id": "OF-24",
+      "category": "Operativa",
+      "question": "¿Desea que la web incluya agendamiento en línea (Cal.com / Calendly) o solo formulario de contacto?",
+      "type": "select",
+      "options": ["Solo formulario", "Calendly embebido", "Cal.com embebido", "Formulario + Calendly"],
+      "required": true
+    },
+    {
+      "id": "OF-25",
+      "category": "Operativa",
+      "question": "Política de primera consulta: ¿cobrada o gratuita?",
+      "type": "select",
+      "options": ["Gratuita", "Cobrada", "Bonificada en caso de contratación"],
+      "required": true
+    },
+    {
+      "id": "OF-26",
+      "category": "Operativa",
+      "question": "Duración estimada de la primera consulta (minutos).",
+      "type": "number",
+      "required": true,
+      "default": 30
+    },
+    {
+      "id": "OF-27",
+      "category": "Operativa",
+      "question": "Modalidades de pago aceptadas: transferencia, tarjeta, efectivo, cheque, otros.",
+      "type": "tags",
+      "required": true
+    },
+    {
+      "id": "OF-28",
+      "category": "Operativa",
+      "question": "Politica de cancelación o reagendamiento de citas.",
+      "type": "textarea",
+      "required": false
+    },
+    {
+      "id": "OF-29",
+      "category": "Operativa",
+      "question": "¿Trabaja con tarifa plana o por hora en algún área? ¿Cuánto?",
+      "type": "textarea",
+      "required": false
+    },
+    {
+      "id": "OF-30",
+      "category": "Operativa",
+      "question": "Política de honorarios fijos vs. sujetos a sentencia (techo de cuota litis).",
+      "type": "textarea",
+      "required": false
+    }
+  ]
+}

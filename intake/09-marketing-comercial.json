@@ -1,0 +1,228 @@
+{
+  "section": "09 · Marketing, comercial y conversión",
+  "scope": "Tono del copy, CTAs, competencias, automation",
+  "questions": [
+    {
+      "id": "MK-01",
+      "category": "Tono",
+      "question": "Tono de comunicaci\u00f3n definitivo (0 = formal puro, 10 = casual).",
+      "type": "range",
+      "min": 0,
+      "max": 10,
+      "required": true,
+      "default": 4
+    },
+    {
+      "id": "MK-02",
+      "category": "Tono",
+      "question": "Se\u00f1ale el estilo de 3 sitios web que admire y describa con 1-3 adjetivos cada uno.",
+      "type": "textarea",
+      "required": true
+    },
+    {
+      "id": "MK-03",
+      "category": "Tono",
+      "question": "Lista de adjetivos prohibidos (ej: 'los mejores', 'barato', 'garantizado').",
+      "type": "tags",
+      "required": true
+    },
+    {
+      "id": "MK-04",
+      "category": "Tono",
+      "question": "Lista de adjetivos aprobados (ej: 'comprometido', 'cuidadoso', 'claro').",
+      "type": "tags",
+      "required": true
+    },
+    {
+      "id": "MK-05",
+      "category": "Tono",
+      "question": "Sitios de la competencia local que NO le gusten (lista con URLs).",
+      "type": "textarea",
+      "required": false
+    },
+    {
+      "id": "MK-06",
+      "category": "Tono",
+      "question": "Sitios de la competencia regional que admire (ej. Baker McKenzie, Marval, Bruchou).",
+      "type": "textarea",
+      "required": false
+    },
+    {
+      "id": "MK-07",
+      "category": "Tono",
+      "question": "Benchmark de precio visible en la web (\u00bfpublica honorarios o solo 'consultar'?).",
+      "type": "select",
+      "options": ["Publica rangos", "Solo 'consultar'", "Publica parcialmente"],
+      "required": true
+    },
+    {
+      "id": "MK-08",
+      "category": "Tono",
+      "question": "Idioma predilecto para el sitio (considerar traductor jurado para EN/PT).",
+      "type": "tags",
+      "required": true
+    },
+    {
+      "id": "MK-09",
+      "category": "Tono",
+      "question": "Personaje de cliente ideal 1 (nombre, edad, profesi\u00f3n, \u00e1rea legal, urgencia, presupuesto).",
+      "type": "textarea",
+      "required": true
+    },
+    {
+      "id": "MK-10",
+      "category": "Tono",
+      "question": "Personaje de cliente ideal 2.",
+      "type": "textarea",
+      "required": false
+    },
+    {
+      "id": "MK-11",
+      "category": "Tono",
+      "question": "Personaje de cliente ideal 3 (PyME, corporativo).",
+      "type": "textarea",
+      "required": false
+    },
+    {
+      "id": "MK-12",
+      "category": "Competencia",
+      "question": "Liste 3 principales competidores directos (estudios jur\u00eddicos similares en Paraguay).",
+      "type": "textarea",
+      "required": true
+    },
+    {
+      "id": "MK-13",
+      "category": "Competencia",
+      "question": "Liste 3 competidores secundarios (abogados independientes en la misma \u00e1rea).",
+      "type": "textarea",
+      "required": false
+    },
+    {
+      "id": "MK-14",
+      "category": "Competencia",
+      "question": "Diferenciador principal de la firma vs. la competencia (1-2 frases).",
+      "type": "textarea",
+      "required": true
+    },
+    {
+      "id": "MK-15",
+      "category": "Competencia",
+      "question": "Cliente perdido \u00faltimamente — \u00bfpor qu\u00e9 y a d\u00f3nde se fue?",
+      "type": "textarea",
+      "required": false
+    },
+    {
+      "id": "MK-16",
+      "category": "Embudo",
+      "question": "Embudo de conversi\u00f3n: cu\u00e1l es el primer punto de contacto del cliente con la firma?",
+      "type": "select",
+      "options": ["Recomendaci\u00f3n", "B\u00fasqueda Google", "Redes sociales", "WhatsApp", "Contacto directo por conocimiento"],
+      "required": true
+    },
+    {
+      "id": "MK-17",
+      "category": "Embudo",
+      "question": "Embudo — segundo punto de contacto (web, llamada, mensaje).",
+      "type": "textarea",
+      "required": true
+    },
+    {
+      "id": "MK-18",
+      "category": "Embudo",
+      "question": "Embudo — d\u00eda 0 a la primera consulta, paso 1: \u00bfqu\u00e9 pasa?",
+      "type": "textarea",
+      "required": true
+    },
+    {
+      "id": "MK-19",
+      "category": "Embudo",
+      "question": "Embudo — paso 2.",
+      "type": "textarea",
+      "required": false
+    },
+    {
+      "id": "MK-20",
+      "category": "Embudo",
+      "question": "Embudo — paso 3 hasta la firma del contrato.",
+      "type": "textarea",
+      "required": false
+    },
+    {
+      "id": "MK-21",
+      "category": "Embudo",
+      "question": "CTAs principales (lista de acci\u00f3n para el cliente).",
+      "type": "tags",
+      "required": true,
+      "example": "Agendar consulta · Escribir por WhatsApp · Llamar ahora · Ver casos · Descargar dossier"
+    },
+    {
+      "id": "MK-22",
+      "category": "Embudo",
+      "question": "Embudo de email — 3 emails del lead al cliente (1\u00ba captaci\u00f3n, 2\u00ba follow-up, 3\u00ba cierre).",
+      "type": "textarea",
+      "required": false
+    },
+    {
+      "id": "MK-23",
+      "category": "Embudo",
+      "question": "Embudo de WhatsApp — secuencia de mensajes desde el primer 'Hola' hasta la cita.",
+      "type": "textarea",
+      "required": true
+    },
+    {
+      "id": "MK-24",
+      "category": "Embudo",
+      "question": "Embudo de WhatsApp — respuestas a objeciones frecuentes (3-5).",
+      "type": "textarea",
+      "required": true
+    },
+    {
+      "id": "MK-25",
+      "category": "Embudo",
+      "question": "Embudo de WhatsApp — indicadores de escalaci\u00f3n a humano (palabras clave).",
+      "type": "tags",
+      "required": false,
+      "example": "abogado · urgent · consulta · hablar"
+    },
+    {
+      "id": "MK-26",
+      "category": "Automation",
+      "question": "Herramientas usadas para email marketing (Mailchimp, Resend, ConvertKit, etc.).",
+      "type": "select",
+      "options": ["Mailchimp", "Resend", "ConvertKit", "MailerLite", "Otro", "B\u00e1sico (mailto)"],
+      "required": true
+    },
+    {
+      "id": "MK-27",
+      "category": "Automation",
+      "question": "Herramientas de gesti\u00f3n de leads (HubSpot, Notion, Google Sheets, planilla).",
+      "type": "select",
+      "options": ["HubSpot", "Notion", "Google Sheets", "Excel", "Otro"],
+      "required": true
+    },
+    {
+      "id": "MK-28",
+      "category": "Automation",
+      "question": "Calendario / reservas online (Cal.com, Calendly, Google Calendar).",
+      "type": "select",
+      "options": ["Cal.com", "Calendly", "Google Calendar", "Otro", "Sin reserva online"],
+      "required": true
+    },
+    {
+      "id": "MK-29",
+      "category": "Automation",
+      "question": "El cliente quiere agendamiento online o solo formulario?",
+      "type": "select",
+      "options": ["Solo formulario", "Calendly/Cal.com", "Webhook + WhatsApp"],
+      "required": true
+    },
+    {
+      "id": "MK-30",
+      "category": "Tono",
+      "question": "Mensaje final del bot al cerrar la conversaci\u00f3n (transferir a humano).",
+      "type": "text",
+      "required": true,
+      "example": "Perfecto. Un abogado de Rubic\u00f3n EAS te mensajear\u00e1 en los pr\u00f3ximos minutos."
+    }
+  ]
+}

@@ -1,0 +1,221 @@
+{
+  "section": "07 · Contenido, UX y micro-interacciones",
+  "scope": "Secciones literales, copy, tono, diseño, microinteracciones",
+  "questions": [
+    {
+      "id": "CX-01",
+      "category": "Hero",
+      "question": "Hero — Titular principal (8-12 palabras).",
+      "type": "text",
+      "required": true,
+      "example": "Asesor\u00eda jur\u00eddica estrat\u00e9gica para empresas y personas en Paraguay."
+    },
+    {
+      "id": "CX-02",
+      "category": "Hero",
+      "question": "Hero — Subtitular (15-25 palabras).",
+      "type": "textarea",
+      "required": true
+    },
+    {
+      "id": "CX-03",
+      "category": "Hero",
+      "question": "Hero — CTA primario (2-3 palabras).",
+      "type": "text",
+      "required": true,
+      "example": "Agendar consulta"
+    },
+    {
+      "id": "CX-04",
+      "category": "Hero",
+      "question": "Hero — CTA secundario (2-4 palabras).",
+      "type": "text",
+      "required": true,
+      "example": "Conocer servicios"
+    },
+    {
+      "id": "CX-05",
+      "category": "Hero",
+      "question": "Hero — Etiqueta de confianza (e.g. 'Matr\u00edcula CSJ 23456 · 15+ a\u00f1os').",
+      "type": "text",
+      "required": true
+    },
+    {
+      "id": "CX-06",
+      "category": "Hero",
+      "question": "Hero — Imagen o video de fondo (describe qué quieres ver).",
+      "type": "textarea",
+      "required": false
+    },
+    {
+      "id": "CX-07",
+      "category": "Hero",
+      "question": "Hero — Foto del abogado como opción (S\u00ed/No).",
+      "type": "boolean",
+      "required": true
+    },
+    {
+      "id": "CX-08",
+      "category": "Hero",
+      "question": "Trust strip — Datos del abogado a figurar (sin librar): matr\u00edcula, a\u00f1os, casos, jurisdicciones.",
+      "type": "textarea",
+      "required": true
+    },
+    {
+      "id": "CX-09",
+      "category": "Servicios",
+      "question": "Secci\u00f3n servicios — T\u00edtulo de secci\u00f3n.",
+      "type": "text",
+      "required": true,
+      "example": "\u00c1reas de pr\u00e1ctica"
+    },
+    {
+      "id": "CX-10",
+      "category": "Servicios",
+      "question": "Secci\u00f3n servicios — Introducci\u00f3n (1-2 p\u00e1rrafos).",
+      "type": "textarea",
+      "required": true
+    },
+    {
+      "id": "CX-11",
+      "category": "Servicios",
+      "question": "Servicios — Pitch Civil (3-5 l\u00edneas).",
+      "type": "textarea",
+      "required": true
+    },
+    {
+      "id": "CX-12",
+      "category": "Servicios",
+      "question": "Servicios — Pitch Penal (3-5 l\u00edneas).",
+      "type": "textarea",
+      "required": true
+    },
+    {
+      "id": "CX-13",
+      "category": "Servicios",
+      "question": "Servicios — Pitch Ambiental (3-5 l\u00edneas).",
+      "type": "textarea",
+      "required": true
+    },
+    {
+      "id": "CX-14",
+      "category": "Servicios",
+      "question": "Servicios — Lista de servicios Civiles (bullets, 5-10).",
+      "type": "textarea",
+      "required": true
+    },
+    {
+      "id": "CX-15",
+      "category": "Servicios",
+      "question": "Servicios — Lista de servicios Penales (bullets, 5-10).",
+      "type": "textarea",
+      "required": true
+    },
+    {
+      "id": "CX-16",
+      "category": "Servicios",
+      "question": "Servicios — Lista de servicios Ambientales (bullets, 5-10).",
+      "type": "textarea",
+      "required": true
+    },
+    {
+      "id": "CX-17",
+      "category": "Por qu\u00e9 nosotros",
+      "question": "Por qu\u00e9 Rubic\u00f3n — Raz\u00f3n #1 (title + 2-3 frases).",
+      "type": "textarea",
+      "required": true
+    },
+    {
+      "id": "CX-18",
+      "category": "Por qu\u00e9 nosotros",
+      "question": "Por qu\u00e9 Rubic\u00f3n — Raz\u00f3n #2.",
+      "type": "textarea",
+      "required": true
+    },
+    {
+      "id": "CX-19",
+      "category": "Por qu\u00e9 nosotros",
+      "question": "Por qu\u00e9 Rubic\u00f3n — Raz\u00f3n #3.",
+      "type": "textarea",
+      "required": true
+    },
+    {
+      "id": "CX-20",
+      "category": "Por qu\u00e9 nosotros",
+      "question": "Por qu\u00e9 Rubic\u00f3n — Raz\u00f3n #4 (opcional).",
+      "type": "textarea",
+      "required": false
+    },
+    {
+      "id": "CX-21",
+      "category": "Sobre nosotros",
+      "question": "Sobre nosotros — Texto principal (3-5 p\u00e1rrafos).",
+      "type": "textarea",
+      "required": true
+    },
+    {
+      "id": "CX-22",
+      "category": "Sobre nosotros",
+      "question": "Sobre nosotros — Misi\u00f3n (1-2 frases).",
+      "type": "text",
+      "required": true
+    },
+    {
+      "id": "CX-23",
+      "category": "Sobre nosotros",
+      "question": "Sobre nosotros — Visi\u00f3n (1-2 frases).",
+      "type": "text",
+      "required": true
+    },
+    {
+      "id": "CX-24",
+      "category": "Sobre nosotros",
+      "question": "Sobre nosotros — Valores (3-5).",
+      "type": "tags",
+      "required": true
+    },
+    {
+      "id": "CX-25",
+      "category": "Sobre nosotros",
+      "question": "Sobre nosotros — Timeline / hitos hist\u00f3ricos (listar).",
+      "type": "textarea",
+      "required": false
+    },
+    {
+      "id": "CX-26",
+      "category": "Sobre nosotros",
+      "question": "Sobre nosotros — Filosof\u00eda de atenci\u00f3n (1-2 p\u00e1rrafos).",
+      "type": "textarea",
+      "required": true
+    },
+    {
+      "id": "CX-27",
+      "category": "Microcopy",
+      "question": "Mensaje de bienvenida en formulario ('Hola, en qu\u00e9 le ayudamos?').",
+      "type": "text",
+      "required": true
+    },
+    {
+      "id": "CX-28",
+      "category": "Microcopy",
+      "question": "Mensaje de confirmaci\u00f3n tras enviar formulario.",
+      "type": "text",
+      "required": true
+    },
+    {
+      "id": "CX-29",
+      "category": "Microcopy",
+      "question": "Mensaje del bot 'cerrando' (cuando transfiere a humano).",
+      "type": "text",
+      "required": true
+    },
+    {
+      "id": "CX-30",
+      "category": "Microcopy",
+      "question": "Disclaimer legal obligatorio al pie de cada p\u00e1gina (texto).",
+      "type": "textarea",
+      "required": true,
+      "hint": "La informaci\u00f3n publicada no constituye asesoramiento jur\u00eddico. Para conferir una consulta, agende una cita."
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "total": 290,
+  "per_file": {
+    "01-identidad-corporativa.json": 20,
+    "02-perfil-profesional.json": 30,
+    "03-servicios-juridicos.json": 30,
+    "04-portfolio-casos.json": 30,
+    "05-oficina-equipo.json": 30,
+    "06-web-objetivos.json": 30,
+    "07-contenido-ux.json": 30,
+    "08-seo-legal.json": 30,
+    "09-marketing-comercial.json": 30,
+    "10-seguridad-ops.json": 30
+  }
+}

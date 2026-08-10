@@ -1,0 +1,164 @@
+{
+  "section": "01 · Identidad corporativa",
+  "scope": "Datos registrales, denominaciones, identidad visual existente",
+  "questions": [
+    {
+      "id": "IC-01",
+      "category": "Denominación",
+      "question": "¿Cuál es la razón social exacta de la empresa tal como figura en el registro público?",
+      "type": "text",
+      "required": true,
+      "example": "Rubicón Empresa por Acciones Simplificadas · Rubicón E.A.S. · Rubicón EAS"
+    },
+    {
+      "id": "IC-02",
+      "category": "Denominación",
+      "question": "¿Cuál es el nombre comercial o de fantasía que se usará en la web?",
+      "type": "text",
+      "required": true,
+      "example": "Rubicón · Rubicón EAS · Estudio Rubicón · Rubicón Legal"
+    },
+    {
+      "id": "IC-03",
+      "category": "Denominación",
+      "question": "¿Existe ya un nombre de dominio registrado? Indique cuáles se encuentran registrados y a nombre de quién (incluir RUC y dirección de correo del titular).",
+      "type": "text",
+      "required": true,
+      "example": "rubiconeas.com.py · rubicon.com.py · rubiconlegal.com.py"
+    },
+    {
+      "id": "IC-04",
+      "category": "Denominación",
+      "question": "¿Cuál es el nombre completo del fundador o del abogado responsable de la firma?",
+      "type": "text",
+      "required": true,
+      "example": "Dr. Juan Pérez González"
+    },
+    {
+      "id": "IC-05",
+      "category": "Denominación",
+      "question": "¿Hay otros profesionales asociados (abogados, escribanos, procuradores)? Liste nombre completo, rol, matrícula y porcentaje de participación.",
+      "type": "textarea",
+      "required": false,
+      "example": "María López — procuradora — Matrícula 12345 — 30% EAS"
+    },
+    {
+      "id": "IC-06",
+      "category": "Denominación",
+      "question": "¿Cuál es el RUC de la EAS?",
+      "type": "text",
+      "required": true
+    },
+    {
+      "id": "IC-07",
+      "category": "Denominación",
+      "question": "¿Cuál es la fecha de constitución de la EAS?",
+      "type": "date",
+      "required": true,
+      "example": "2024-03-15"
+    },
+    {
+      "id": "IC-08",
+      "category": "Denominación",
+      "question": "¿Cuál es el objeto social declarado en el estatuto de la EAS?",
+      "type": "textarea",
+      "required": true,
+      "example": "Prestación de servicios jurídicos de consultoría, patrocinio y asesoramiento legal en las ramas del Derecho Civil, Penal y Ambiental..."
+    },
+    {
+      "id": "IC-09",
+      "category": "Identidad visual",
+      "question": "¿Existe un manual de marca o logo diseñado? Adjuntar archivo (vectorial SVG, AI, EPS o PNG con fondo transparente).",
+      "type": "file",
+      "required": true,
+      "accepted_formats": ["svg", "ai", "eps", "png", "pdf"]
+    },
+    {
+      "id": "IC-10",
+      "category": "Identidad visual",
+      "question": "¿Cuál es el código hexadecimal (HEX) oficial del color primario de la marca?",
+      "type": "text",
+      "required": false,
+      "placeholder": "#1F3A5F"
+    },
+    {
+      "id": "IC-11",
+      "category": "Identidad visual",
+      "question": "¿Cuál es el código hexadecimal (HEX) del color secundario o de acento?",
+      "type": "text",
+      "required": false,
+      "placeholder": "#8B5E2B"
+    },
+    {
+      "id": "IC-12",
+      "category": "Identidad visual",
+      "question": "Si no tiene código HEX exacto, describa el color primario en palabras.",
+      "type": "text",
+      "required": false,
+      "example": "Azul marino profundo, gris carbón, verde botella"
+    },
+    {
+      "id": "IC-13",
+      "category": "Identidad visual",
+      "question": "¿Tiene tipografía corporativa definida? (familia, peso, variantes)",
+      "type": "text",
+      "required": false,
+      "example": "Playfair Display para títulos, Inter para cuerpo"
+    },
+    {
+      "id": "IC-14",
+      "category": "Identidad visual",
+      "question": "¿Existe una paleta secundaria o estados (éxito, error, advertencia)? Adjunte valores.",
+      "type": "textarea",
+      "required": false
+    },
+    {
+      "id": "IC-15",
+      "category": "Identidad visual",
+      "question": "¿Cuál es el tono de comunicación preferido? (formal/institucional, accesible/cálido, técnico/jurídico, persuasivo/comercial)",
+      "type": "text",
+      "required": true,
+      "example": "Formal pero accesible, sin pomposidad judicial"
+    },
+    {
+      "id": "IC-16",
+      "category": "Identidad visual",
+      "question": "¿Hay algún sitio web de la competencia cuya estética admire? Adjunte 2-3 URLs.",
+      "type": "textarea",
+      "required": false,
+      "example": "bomchil.com · marval.com.ar · bakertilly.com.py"
+    },
+    {
+      "id": "IC-17",
+      "category": "Identidad visual",
+      "question": "¿Hay algún sitio web existente de la firma o del abogado cuya estética se quiera mantener?",
+      "type": "url",
+      "required": false
+    },
+    {
+      "id": "IC-18",
+      "category": "Identidad visual",
+      "question": "¿Cuál es el eslogan o tagline actual de la firma (si tiene)?",
+      "type": "text",
+      "required": false,
+      "example": "Justicia con criterio · Soluciones legales estratégicas"
+    },
+    {
+      "id": "IC-19",
+      "category": "Identidad visual",
+      "question": "Si no tiene tagline, ¿desea que se propongan 3-5 opciones durante el diseño?",
+      "type": "boolean",
+      "required": true,
+      "default": true
+    },
+    {
+      "id": "IC-20",
+      "category": "Identidad visual",
+      "question": "Indique el idioma principal del sitio (puede ser multilingüe).",
+      "type": "select",
+      "options": ["Español únicamente", "Español + Inglés", "Español + Portugués", "Español + Inglés + Portugués"],
+      "required": true,
+      "default": "Español únicamente"
+    }
+  ]
+}

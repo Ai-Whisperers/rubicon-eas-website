@@ -1,0 +1,227 @@
+{
+  "section": "03 · Servicios jurídicos y áreas de práctica",
+  "scope": "Detalle de cada servicio, oferta específica, requisitos",
+  "questions": [
+    {
+      "id": "SV-01",
+      "category": "Estructura general",
+      "question": "Ordene de mayor a menor volumen de casos las tres áreas (Civil, Penal, Ambiental).",
+      "type": "tags",
+      "required": true,
+      "example": "1. Civil · 2. Penal · 3. Ambiental"
+    },
+    {
+      "id": "SV-02",
+      "category": "Estructura general",
+      "question": "¿Desea mostrar las tres áreas con el mismo peso visual o destacar una como especialidad principal?",
+      "type": "select",
+      "options": ["Mismo peso", "Destacar Civil (founder specialty)", "Destacar Penal", "Destacar Ambiental"],
+      "required": true
+    },
+    {
+      "id": "SV-03",
+      "category": "Estructura general",
+      "question": "¿Existen otras áreas de práctica que se deban incluir (Comercial, Familia, Laboral, Tributario, Administrativo, Propiedad Intelectual, Migratorio, Internacional)?",
+      "type": "tags",
+      "required": false
+    },
+    {
+      "id": "SV-04",
+      "category": "Estructura general",
+      "question": "¿Desea una página independiente para cada área o una página consolidada de servicios?",
+      "type": "select",
+      "options": ["Una página por área", "Página consolidada", "Híbrido (destacada + subpáginas)"],
+      "required": true
+    },
+    {
+      "id": "SV-05",
+      "category": "Derecho Civil",
+      "question": "Liste los servicios específicos dentro de Derecho Civil que ofrece.",
+      "type": "textarea",
+      "required": true,
+      "hint": "Ejemplos: contratos civiles y comerciales, responsabilidad civil, derecho sucesorio, prescripción, reivindicación, inmueble, servidumbres, etc."
+    },
+    {
+      "id": "SV-06",
+      "category": "Derecho Civil",
+      "question": "Para Derecho Civil, ¿qué tipo de cliente es mayoritario: personas físicas, empresas grandes, PyMEs, emprendedores?",
+      "type": "textarea",
+      "required": true
+    },
+    {
+      "id": "SV-07",
+      "category": "Derecho Civil",
+      "question": "¿Trabaja casos civiles en todo el país o solo en Asunción/Departamento Central?",
+      "type": "text",
+      "required": true
+    },
+    {
+      "id": "SV-08",
+      "category": "Derecho Civil",
+      "question": "Tarifas aproximadas o rango para casos Civiles (consultoría, patrocinio, juicios).",
+      "type": "textarea",
+      "required": false,
+      "hint": "Si no publica, indique 'consultar' o elimine esta pregunta."
+    },
+    {
+      "id": "SV-09",
+      "category": "Derecho Penal",
+      "question": "Liste los servicios específicos dentro de Derecho Penal.",
+      "type": "textarea",
+      "required": true,
+      "hint": "Ejemplos: defensa penal, querellas, audiencias, medidas cautelares, libertad ambulatoria, recursos, ejecución penal, etc."
+    },
+    {
+      "id": "SV-10",
+      "category": "Derecho Penal",
+      "question": "¿Atiende todas las etapas del proceso penal (instrucción, intermedia, juicio oral) o solo alguna(s)?",
+      "type": "tags",
+      "required": true
+    },
+    {
+      "id": "SV-11",
+      "category": "Derecho Penal",
+      "question": "¿Ofrece servicio de asistencia al detenido en flagrancia o comisaría?",
+      "type": "boolean",
+      "required": true
+    },
+    {
+      "id": "SV-12",
+      "category": "Derecho Penal",
+      "question": "¿Interviene en causas por delitos económicos, delitos funcionarios, lavado, crimen organizado?",
+      "type": "boolean",
+      "required": true
+    },
+    {
+      "id": "SV-13",
+      "category": "Derecho Penal",
+      "question": "Tarifas aproximadas o rango para Penal (consultoría, patrocinio).",
+      "type": "textarea",
+      "required": false
+    },
+    {
+      "id": "SV-14",
+      "category": "Derecho Ambiental",
+      "question": "Liste los servicios específicos dentro de Derecho Ambiental.",
+      "type": "textarea",
+      "required": true,
+      "hint": "Ejemplos: evaluación de impacto ambiental, infracciones administrativas, estudios de impacto, denuncias, recursos, derecho de aguas, deforestación, etc."
+    },
+    {
+      "id": "SV-15",
+      "category": "Derecho Ambiental",
+      "question": "¿Trabaja con el MADES y/o el SENAVE, Ministerio Público, Policía Forestal?",
+      "type": "textarea",
+      "required": true
+    },
+    {
+      "id": "SV-16",
+      "category": "Derecho Ambiental",
+      "question": "Clientes típicos: ¿empresas industriales, agroganaderas, ONGs, gobiernos municipales, productores rurales?",
+      "type": "textarea",
+      "required": true
+    },
+    {
+      "id": "SV-17",
+      "category": "Derecho Ambiental",
+      "question": "Tarifas o rangos para Ambiental.",
+      "type": "textarea",
+      "required": false
+    },
+    {
+      "id": "SV-18",
+      "category": "Áreas complementarias",
+      "question": "¿Hace mediación, arbitraje, negociación, conciliación extrajudicial?",
+      "type": "textarea",
+      "required": false
+    },
+    {
+      "id": "SV-19",
+      "category": "Áreas complementarias",
+      "question": "¿Trabaja con otros estudios jurídicos como corresponsal en el interior del país?",
+      "type": "boolean",
+      "required": false
+    },
+    {
+      "id": "SV-20",
+      "category": "Áreas complementarias",
+      "question": "¿Cuenta con peritos, consultores o técnicos de apoyo (contadores, ingenieros forestales, traductores)?",
+      "type": "textarea",
+      "required": false
+    },
+    {
+      "id": "SV-21",
+      "category": "Modalidad",
+      "question": "¿Realiza asistencia legal remota o exclusivamente presencial?",
+      "type": "select",
+      "options": ["Presencial únicamente", "Presencial + virtual", "Virtual únicamente"],
+      "required": true
+    },
+    {
+      "id": "SV-22",
+      "category": "Modalidad",
+      "question": "Horarios de atención al cliente (incluir inicio y fin, sábados o no).",
+      "type": "textarea",
+      "required": true,
+      "example": "Lun-Vie 14:30-19:00 · Sáb 09:00-12:00"
+    },
+    {
+      "id": "SV-23",
+      "category": "Modalidad",
+      "question": "Política de respuesta primera: ¿cuántas horas/días se compromete a contestar un mensaje o correo?",
+      "type": "text",
+      "required": true,
+      "example": "Menos de 24 horas hábiles"
+    },
+    {
+      "id": "SV-24",
+      "category": "Modalidad",
+      "question": "Para urgencias penales, ¿cuál es el canal de atención inmediata (teléfono, WhatsApp dedicado)?",
+      "type": "text",
+      "required": false
+    },
+    {
+      "id": "SV-25",
+      "category": "Modalidad",
+      "question": "Idioma de la atención: ¿solo español, o también inglés y portugués?",
+      "type": "tags",
+      "required": true
+    },
+    {
+      "id": "SV-26",
+      "category": "Casos",
+      "question": "Lista de 3-5 casos civiles (anónimos) emblemáticos en los últimos 5 años: área, tipo de cliente, jurisdicción, año, resumen, resultado.",
+      "type": "textarea",
+      "required": true,
+      "hint": "Modelo: 'Asesoría a PyME industrial en Ciudad del Este — Reestructuración de deuda — 2023 — Homologación judicial de acuerdo con tres bancos, reducción 35% pasivo.'"
+    },
+    {
+      "id": "SV-27",
+      "category": "Casos",
+      "question": "Lista de 3-5 casos penales (anónimos) relevantes en los últimos 5 años.",
+      "type": "textarea",
+      "required": true
+    },
+    {
+      "id": "SV-28",
+      "category": "Casos",
+      "question": "Lista de 3-5 casos ambientales (anónimos) relevantes en los últimos 5 años.",
+      "type": "textarea",
+      "required": true
+    },
+    {
+      "id": "SV-29",
+      "category": "Casos",
+      "question": "¿Tiene autorización expresa de clientes para publicar sus casos (anónimos) o esto debe verificarse?",
+      "type": "boolean",
+      "required": true
+    },
+    {
+      "id": "SV-30",
+      "category": "Casos",
+      "question": "Si no tiene casos, ¿autoriza a escribir casos ficticios 'plausibles' (placeholder: 'Caso A — Asesoría PyME...') para fines de portfolio?",
+      "type": "boolean",
+      "required": true
+    }
+  ]
+}

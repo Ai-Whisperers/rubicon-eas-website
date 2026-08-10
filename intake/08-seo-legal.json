@@ -1,0 +1,235 @@
+{
+  "section": "08 · SEO, legal y compliance",
+  "scope": "Posicionamiento, cumplimiento normativo local, datos personales",
+  "questions": [
+    {
+      "id": "SEO-01",
+      "category": "SEO",
+      "question": "5 palabras clave principales que el cliente busca (Civil/Penal/Ambiental + Paraguay).",
+      "type": "tags",
+      "required": true,
+      "example": "abogado civil Paraguay · abogado penalista Asunci\u00f3n · derecho ambiental Paraguay"
+    },
+    {
+      "id": "SEO-02",
+      "category": "SEO",
+      "question": "5 palabras clave secundarias / long-tail.",
+      "type": "tags",
+      "required": true,
+      "example": "asesor\u00eda PyME civil Paraguay · defensa penal econ\u00f3mica · infracci\u00f3n ambiental MADES"
+    },
+    {
+      "id": "SEO-03",
+      "category": "SEO",
+      "question": "T\u00edtulo SEO por defecto (50-60 caracteres).",
+      "type": "text",
+      "required": true,
+      "example": "Rubic\u00f3n EAS | Abogado Civil, Penal y Ambiental en Paraguay"
+    },
+    {
+      "id": "SEO-04",
+      "category": "SEO",
+      "question": "Meta description por defecto (140-160 caracteres).",
+      "type": "text",
+      "required": true
+    },
+    {
+      "id": "SEO-05",
+      "category": "SEO",
+      "question": "OpenGraph image (1200x630px JPG/PNG).",
+      "type": "file",
+      "required": false
+    },
+    {
+      "id": "SEO-06",
+      "category": "SEO",
+      "question": "P\u00e1ginas enfatizadas (a indexar con prioridad).",
+      "type": "tags",
+      "required": true,
+      "example": "Home · /derecho-civil · /derecho-penal · /derecho-ambiental · /nosotros"
+    },
+    {
+      "id": "SEO-07",
+      "category": "SEO",
+      "question": "Sitios donde se har\u00e1 backlink (Google Business, LinkedIn, directorio Colegio de Abogados, etc.).",
+      "type": "textarea",
+      "required": false
+    },
+    {
+      "id": "SEO-08",
+      "category": "SEO",
+      "question": "URLs amigables (slugs) preferido por p\u00e1gina.",
+      "type": "textarea",
+      "required": true,
+      "example": "/derecho-civil · /derecho-penal · /derecho-ambiental"
+    },
+    {
+      "id": "SEO-09",
+      "category": "SEO",
+      "question": "Sitemap.xml y robots.txt — confirmar que se generar\u00e1n autom\u00e1gicamente.",
+      "type": "boolean",
+      "required": true,
+      "default": true
+    },
+    {
+      "id": "SEO-10",
+      "category": "SEO",
+      "question": "Schema.org — \u00bfse quiere JSON-LD para LegalService + Attorney + FAQPage?",
+      "type": "boolean",
+      "required": true,
+      "default": true
+    },
+    {
+      "id": "SEO-11",
+      "category": "Legal",
+      "question": "Ley aplicable en tratamiento de datos: \u00bfLey 1682/01 (Datos Personales) Paraguay + GDPR para audiencia UE?",
+      "type": "select",
+      "options": ["Solo Ley 1682/01 Paraguay", "Ley 1682/01 + GDPR UE", "Otra combinaci\u00f3n"],
+      "required": true
+    },
+    {
+      "id": "SEO-12",
+      "category": "Legal",
+      "question": "Pol\u00edtica de privacidad \u2014 \u00bfhay una redactada o hay que crear?",
+      "type": "select",
+      "options": ["Hay una redactada", "Hay que crear", "Hay un borrador"],
+      "required": true
+    },
+    {
+      "id": "SEO-13",
+      "category": "Legal",
+      "question": "T\u00e9rminos y condiciones de uso del sitio.",
+      "type": "select",
+      "options": ["Hay una redactada", "Hay que crear", "Hay un borrador"],
+      "required": true
+    },
+    {
+      "id": "SEO-14",
+      "category": "Legal",
+      "question": "Pol\u00edtica de cookies + banner de consentimiento (CMP).",
+      "type": "select",
+      "options": ["Sin banner (sin cookies no necesarias)", "Banner simple OK", "Banner + CMP (tcc, etc.)"],
+      "required": true
+    },
+    {
+      "id": "SEO-15",
+      "category": "Legal",
+      "question": "Consentimiento expreso de env\u00edo de mensajes comerciales (Ley 1682/01 art. 9).",
+      "type": "boolean",
+      "required": true,
+      "default": true
+    },
+    {
+      "id": "SEO-16",
+      "category": "Legal",
+      "question": "Bot\u00f3n 'borrar mis datos' en la p\u00e1gina /gestionar-datos (auto-service derecho al olvido).",
+      "type": "boolean",
+      "required": true,
+      "default": true
+    },
+    {
+      "id": "SEO-17",
+      "category": "Legal",
+      "question": "RGPD — \u00bfhay clientes en la UE/Latinoam\u00e9rica con regulaciones equivalentes?",
+      "type": "boolean",
+      "required": false
+    },
+    {
+      "id": "SEO-18",
+      "category": "Compliance",
+      "question": "Ley 6006/17 (Prevenci\u00f3n LA/FT) — \u00bfla firma es sujeto obligado y debe tener UIAF?",
+      "type": "boolean",
+      "required": true
+    },
+    {
+      "id": "SEO-19",
+      "category": "Compliance",
+      "question": "Compliance interno del Colegio de Abogados — \u00bfhay un manual que regule el sitio?",
+      "type": "boolean",
+      "required": false
+    },
+    {
+      "id": "SEO-20",
+      "category": "Compliance",
+      "question": "Publicidad profesional — \u00bfexiste l\u00edmite al tipo de claims permitidos en la web (ej. 'los mejores abogados de Paraguay')?",
+      "type": "textarea",
+      "required": true,
+      "hint": "El Colegio de Abogados del Paraguay limita la publicidad. Por lo general no se permiten claims superlativos sin sustento."
+    },
+    {
+      "id": "SEO-21",
+      "category": "Compliance",
+      "question": "Manejo de im\u00e1genes de casos / sentencias si son de dominio p\u00fablico.",
+      "type": "select",
+      "options": ["Se pueden reproducir libremente", "Parcialmente / citar fuente", "Bajo autorizaci\u00f3n"],
+      "required": true
+    },
+    {
+      "id": "SEO-22",
+      "category": "Compliance",
+      "question": "Cliente debe firmar t\u00e9rminos y confidencialidad antes de acceder al portal?",
+      "type": "boolean",
+      "required": false
+    },
+    {
+      "id": "SEO-23",
+      "category": "Compliance",
+      "question": "Herramientas de an\u00e1lisis de uso (Plausible, Google Analytics, Nenhuma).",
+      "type": "select",
+      "options": ["Plausible", "Google Analytics 4", "Umami", "Nenhuma"],
+      "required": true
+    },
+    {
+      "id": "SEO-24",
+      "category": "Compliance",
+      "question": "Servicios externos que requieren DPA (Data Processing Agreement).",
+      "type": "tags",
+      "required": false,
+      "example": "Cloudflare · Vercel · Heroku · Resend · Mailgun"
+    },
+    {
+      "id": "SEO-25",
+      "category": "Compliance",
+      "question": "Respaldos del sitio: \u00bffrecuencia y d\u00eda de vencimiento de los datos?",
+      "type": "textarea",
+      "required": false
+    },
+    {
+      "id": "SEO-26",
+      "category": "Compliance",
+      "question": "Plazo de retenci\u00f3n de leads versus plazo de eliminaci\u00f3n.",
+      "type": "textarea",
+      "required": true
+    },
+    {
+      "id": "SEO-27",
+      "category": "Compliance",
+      "question": "RGPD/WPP — uso de rese\u00f1as p\u00fablicas de Google (cumple con instrucciones de la EDPB?).",
+      "type": "boolean",
+      "required": false
+    },
+    {
+      "id": "SEO-28",
+      "category": "Compliance",
+      "question": "Hosting del sitio — \u00bfse requiere residencia en Paraguay o cualquier regi\u00f3n es v\u00e1lida?",
+      "type": "select",
+      "options": ["Requiere Paraguay", "Latinoam\u00e9rica", "Cualquier regi\u00f3n"],
+      "required": true
+    },
+    {
+      "id": "SEO-29",
+      "category": "Compliance",
+      "question": "Bot\u00f3n de 'no soy abogado' o disclaimers para evitar configuraci\u00f3n de abogado-cliente.",
+      "type": "boolean",
+      "required": true,
+      "default": true
+    },
+    {
+      "id": "SEO-30",
+      "category": "Compliance",
+      "question": "Indique las reglas internas del Colegio de Abogados del Paraguay sobre publicidad y las reglas internas de la EAS.",
+      "type": "textarea",
+      "required": true
+    }
+  ]
+}

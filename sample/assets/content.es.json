@@ -1,0 +1,400 @@
+{
+  "site": {
+    "name": "Rubicón EAS",
+    "legal_name": "Rubicón Empresa por Acciones Simplificadas",
+    "tagline": "Justicia con criterio. Defensa con oficio.",
+    "matricula_csj": "Matrícula CSJ N° 23.456",
+    "matricula_cap": "Colegio de Abogados del Paraguay N° 8.921",
+    "founded": 2014,
+    "languages": ["Español", "Inglés", "Portugués"],
+    "email": "contacto@rubiconeas.com.py",
+    "email_alt": "estudio@rubiconeas.com.py",
+    "phone": "+595 21 123 456",
+    "phone_mobile": "+595 981 234 567",
+    "whatsapp": "595981234567",
+    "address": "Av. Mariscal López 1234, Piso 8 Of. 803, Asunción, Paraguay",
+    "city": "Asunción",
+    "country": "Paraguay",
+    "hours": "Lun a Vie 09:00-18:00 · Sáb 09:00-12:00",
+    "responsibility": "Dr. Juan María Pérez González",
+    "founded_year": 2014,
+    "years_experience": 11,
+    "cases_total": 312,
+    "cases_5y": 184,
+    "success_rate_civil": "78%",
+    "success_rate_penal": "82%",
+    "success_rate_ambiental": "75%",
+    "jurisdictions": 4,
+    "quick_response": "Menos de 24 horas hábiles",
+    "urgent_response": "Menos de 30 minutos · Línea penal"
+  },
+  "social": {
+    "linkedin": "https://linkedin.com/in/juan-perez-rubicon",
+    "instagram": "https://instagram.com/rubiconeas",
+    "facebook": "https://facebook.com/rubiconeas"
+  },
+  "navigation": [
+    {"label": "Inicio", "href": "index.html"},
+    {"label": "Derecho Civil", "href": "derecho-civil.html"},
+    {"label": "Derecho Penal", "href": "derecho-penal.html"},
+    {"label": "Derecho Ambiental", "href": "derecho-ambiental.html"},
+    {"label": "Nosotros", "href": "nosotros.html"},
+    {"label": "Casos", "href": "casos.html"},
+    {"label": "Artículos", "href": "blog.html"},
+    {"label": "Contacto", "href": "contacto.html"}
+  ],
+  "hero": {
+    "badge": "Asunción · Paraguay",
+    "title": "Asesoría jurídica estratégica para empresas y personas en Paraguay.",
+    "subtitle": "Patrocinio en Derecho Civil, Penal y Ambiental. Respuesta en menos de 24 horas. Matrícula CSJ 23.456.",
+    "primary_cta": {"label": "Agendar consulta", "href": "contacto.html"},
+    "secondary_cta": {"label": "Áreas de práctica", "href": "#areas"},
+    "trust_line": "11+ años de ejercicio · 312+ casos"
+  },
+  "trust_strip": {
+    "items": [
+      {"value": "Matrícula CSJ 23.456", "label": "Habilitado para litigar"},
+      {"value": "11+ años", "label": "De ejercicio profesional"},
+      {"value": "312+ casos", "label": "Atendidos en toda la carrera"},
+      {"value": "78% éxito", "label": "Casos Civiles favorables"},
+      {"value": "<24h", "label": "Tiempo de respuesta"}
+    ]
+  },
+  "areas": {
+    "lead": "Tres áreas, una sola firma. Cobertura integral para sus asuntos jurídicos.",
+    "items": [
+      {
+        "id": "civil",
+        "title": "Derecho Civil",
+        "icon": "⚖️",
+        "summary": "Contratos, sucesiones, responsabilidad civil, propiedad y derecho comercial. Defensa en juicios ordinarios y ejecutivos en toda la República.",
+        "services": [
+          "Contratos civiles y comerciales",
+          "Responsabilidad civil extracontractual",
+          "Sucesiones y planificación patrimonial",
+          "Propiedad, reivindicación y prescripción",
+          "Reestructuración de deuda para PyMEs",
+          "Litigios civiles y comerciales"
+        ],
+        "cta": {"label": "Ver Derecho Civil", "href": "derecho-civil.html"}
+      },
+      {
+        "id": "penal",
+        "title": "Derecho Penal",
+        "icon": "🛡️",
+        "summary": "Defensa penal estratégica en todas las etapas. Delitos económicos, funcionarios, comunes. Atención inmediata en flagrancia.",
+        "services": [
+          "Defensa penal en instrucción e intermedia",
+          "Juicio oral y recursos",
+          "Asistencia al detenido en flagrancia",
+          "Querellas y denuncias",
+          "Delitos económicos y funcionarios",
+          "Medidas cautelares y libertad ambulatoria"
+        ],
+        "cta": {"label": "Ver Derecho Penal", "href": "derecho-penal.html"}
+      },
+      {
+        "id": "ambiental",
+        "title": "Derecho Ambiental",
+        "icon": "🌱",
+        "summary": "Asesoramiento integral en cumplimiento, infracciones administrativas y litigio ambiental. Trabajo coordinado con MADES, SENAVE y Ministerio Público.",
+        "services": [
+          "Evaluación de impacto ambiental",
+          "Infracciones administrativas y recursos",
+          "Derecho de aguas y recursos naturales",
+          "Deforestación y áreas protegidas",
+          "Cumplimiento corporativo ESG",
+          "Mediación y resolución de conflictos ambientales"
+        ],
+        "cta": {"label": "Ver Derecho Ambiental", "href": "derecho-ambiental.html"}
+      }
+    ]
+  },
+  "why": {
+    "title": "Por qué Rubicón EAS",
+    "lead": "Lo que nos diferencia de otros estudios en Asunción.",
+    "items": [
+      {
+        "title": "Respuesta en menos de 24 horas",
+        "body": "Cada mensaje recibe respuesta humana. Los casos urgentes penales se atienden en menos de 30 minutos en la línea dedicada."
+      },
+      {
+        "title": "Honorarios transparentes",
+        "body": "Cada propuesta llega con monto cerrado, alcance documentado y criterios de éxito. Sin sorpresas en la facturación."
+      },
+      {
+        "title": "Tres áreas, un abogado",
+        "body": "Civil, Penal y Ambiental coordinadas por el Dr. Pérez. Coherencia estratégica cuando un mismo cliente tiene asuntos en varias áreas."
+      },
+      {
+        "title": "Atención en tres idiomas",
+        "body": "Español, inglés y portugués. Estructura preparada para clientes corporativos y casos transfronterizos."
+      }
+    ]
+  },
+  "about": {
+    "title": "Sobre el Dr. Juan María Pérez",
+    "lead": "Socio fundador de Rubicón EAS. 11 años de ejercicio patrocinando casos Civiles, Penales y Ambientales.",
+    "bio": [
+      "El Dr. Juan María Pérez González nació en Asunción en 1985. Cursó la carrera de Derecho en la Universidad Nacional de Asunción, egresando en 2010 con el promedio de la promoción.",
+      "Obtuvo su Matrícula en la Corte Suprema de Justicia en 2014 y desde entonces ha ejercido ininterrumpidamente, con énfasis en litigios civiles y comerciales, defensa penal estratégica y Derecho Ambiental administrativo.",
+      "Es profesor adscripto de Derecho Procesal Civil en la Facultad de Ciencias Jurídicas de la Universidad Nacional de Asunción y autor de tres artículos académicos sobre responsabilidad civil y derecho ambiental.",
+      "En 2024 fundó Rubicón EAS para consolidar una práctica jurídica personal con infraestructura profesional: respuesta rápida, honorarios claros y atención integral."
+    ],
+    "stats": [
+      {"value": "11+", "label": "Años de ejercicio"},
+      {"value": "312", "label": "Casos atendidos"},
+      {"value": "78%", "label": "Éxito Civil"},
+      {"value": "82%", "label": "Éxito Penal"}
+    ],
+    "credentials": [
+      "Matrícula CSJ N° 23.456",
+      "Colegio de Abogados del Paraguay N° 8.921",
+      "Abogado habilitado para litigar en Asunción, Central, Alto Paraná e Itapúa",
+      "Maestría en Derecho Civil y Procesal Civil — UNA, 2017",
+      "Diplomado en Derecho Ambiental — Universidad de Salamanca, 2019"
+    ]
+  },
+  "cases": {
+    "lead": "Una pequeña muestra de casos atendidos. Los detalles se presentan de forma anónima.",
+    "items": [
+      {
+        "id": "c-001",
+        "area": "Civil",
+        "subarea": "Reestructuración comercial",
+        "client_type": "PyME industrial, 80 empleados",
+        "jurisdiction": "Asunción",
+        "year": 2024,
+        "outcome": "Acuerdo homologado en 7 meses, reducción 35% del pasivo",
+        "summary": "Asesoría en reestructuración de pasivos con tres acreedores bancarios, renegociación de contratos comerciales y homologación judicial del acuerdo concursal."
+      },
+      {
+        "id": "c-002",
+        "area": "Civil",
+        "subarea": "Sucesión compleja",
+        "client_type": "Familia con patrimonio rural",
+        "jurisdiction": "Central",
+        "year": 2023,
+        "outcome": "Partición amigable en 14 meses, sin litigio",
+        "summary": "Proceso sucesorio complejo con tres inmuebles rurales, fondo de comercio y participaciones societarias. Acuerdo extrajudicial entre los herederos."
+      },
+      {
+        "id": "c-003",
+        "area": "Penal",
+        "subarea": "Defensa por delito económico",
+        "client_type": "Directivo de compañía financiera",
+        "jurisdiction": "Asunción",
+        "year": 2024,
+        "outcome": "Sobreseimiento definitivo",
+        "summary": "Defensa penal en causa por supuesta apropiación derivada de operación financiera. Estrategia probatoria documentaria y sobreseimiento en instrucción."
+      },
+      {
+        "id": "c-004",
+        "area": "Penal",
+        "subarea": "Defensa en flagrancia",
+        "client_type": "Persona física detenida",
+        "jurisdiction": "Central",
+        "year": 2025,
+        "outcome": "Libertad ambulatoria en menos de 6 horas",
+        "summary": "Asistencia inmediata al detenido en comisaría. Defensa técnica desde la primera audiencia, libertad ambulatoria sin prisión preventiva."
+      },
+      {
+        "id": "c-005",
+        "area": "Ambiental",
+        "subarea": "Infracción administrativa",
+        "client_type": "Empresa agroindustrial",
+        "jurisdiction": "Alto Paraná",
+        "year": 2024,
+        "outcome": "Reducción de multa 80%, plan de cumplimiento aprobado",
+        "summary": "Defensa en sumario administrativo del MADES. Negociación del plan de cumplimiento ambiental y reducción sustancial de la sanción dineraria."
+      },
+      {
+        "id": "c-006",
+        "area": "Ambiental",
+        "subarea": "Derecho de aguas",
+        "client_type": "Productor rural",
+        "jurisdiction": "Itapúa",
+        "year": 2023,
+        "outcome": "Sentencia favorable, derecho de uso de agua reconocido",
+        "summary": "Litigio administrativo y judicial por derecho de uso de agua. Sentencia favorable reconociendo prioridad histórica y derecho de uso continuo."
+      },
+      {
+        "id": "c-007",
+        "area": "Civil",
+        "subarea": "Responsabilidad civil",
+        "client_type": "Persona física lesionada en accidente",
+        "jurisdiction": "Asunción",
+        "year": 2025,
+        "outcome": "Acuerdo extrajudicial con aseguradora, indemnización G. 850M",
+        "summary": "Reclamación por daños corporales derivados de accidente de tránsito. Acuerdo extrajudicial con la aseguradora y la parte demandada."
+      },
+      {
+        "id": "c-008",
+        "area": "Penal",
+        "subarea": "Apelación y recurso",
+        "client_type": "Condenado en primera instancia",
+        "jurisdiction": "Asunción",
+        "year": 2023,
+        "outcome": "Reducción de pena de 4 a 1 año",
+        "summary": "Recurso de apelación contra sentencia condenatoria. Reencuadre jurídico y reducción sustancial de la pena aplicada."
+      },
+      {
+        "id": "c-009",
+        "area": "Ambiental",
+        "subarea": "Cumplimiento corporativo ESG",
+        "client_type": "Multinacional del sector alimentos",
+        "jurisdiction": "Asunción",
+        "year": 2025,
+        "outcome": "Política ambiental implementada en 90 días",
+        "summary": "Diseño e implementación de política de cumplimiento ambiental corporativo, alineada con estándares ISO 14001 y EHSS del cliente."
+      }
+    ]
+  },
+  "testimonials": [
+    {
+      "name": "Ricardo M.",
+      "role": "Gerente PyME industrial",
+      "text": "Nos acompañó en la reestructuración más difícil de la empresa. Su claridad explicando opciones y su tiempo de respuesta marcaron la diferencia."
+    },
+    {
+      "name": "Ana L.",
+      "role": "Cliente particular",
+      "text": "Después de dos consultas con otros abogados, la primera charla con el Dr. Pérez fue la primera donde entendí qué pasaba con mi caso. Lo recomiendo."
+    },
+    {
+      "name": "Estudio Contable Paredes",
+      "role": "Corresponsal",
+      "text": "Cuando nuestros clientes necesitan patrocinio civil o penal, derivamos a Rubicón. La comunicación entre profesionales es directa y sin pérdida de contexto."
+    }
+  ],
+  "faq": {
+    "sections": [
+      {
+        "title": "Sobre la consulta",
+        "items": [
+          {
+            "q": "¿Cuánto cuesta la primera consulta?",
+            "a": "La primera consulta es bonificada en caso de contratación posterior. Si el cliente decide no contratar, se abona el tiempo consumido a tarifa horaria standard."
+          },
+          {
+            "q": "¿Cuánto dura la primera reunión?",
+            "a": "Entre 30 y 45 minutos. Es el tiempo necesario para entender el caso, evaluar la documentación y proponer un plan de acción."
+          },
+          {
+            "q": "¿Trabajan con presupuesto cerrado o por hora?",
+            "a": "Ambos. En consultoría y redacción de documentos solemos trabajar con tarifa cerrada. En litigio complejo, presupuesto por horas con topes mensuales."
+          },
+          {
+            "q": "¿Atienden casos en el interior del país?",
+            "a": "Sí. Tenemos casos activos en Asunción, Central, Alto Paraná e Itapúa. Para jurisdicciones más alejadas trabajamos con corresponsales."
+          },
+          {
+            "q": "¿Cuál es el plazo de respuesta a un mensaje?",
+            "a": "Menos de 24 horas hábiles para mensajes de WhatsApp, formulario web y correo. Para urgencias penales, se activa la línea dedicada con respuesta en menos de 30 minutos."
+          }
+        ]
+      },
+      {
+        "title": "Sobre el trabajo",
+        "items": [
+          {
+            "q": "¿Qué pasa después de la primera consulta?",
+            "a": "Recibirá una propuesta por escrito con el alcance del trabajo, los honorarios, el plazo estimado y los criterios de éxito. Sin compromiso hasta que firme la carta de encargo."
+          },
+          {
+            "q": "¿Cómo se comunican durante el caso?",
+            "a": "Reuniones presenciales o por videollamada según la agenda. Actualizaciones formales mensuales por escrito; comunicación inmediata ante cualquier novedad relevante."
+          },
+          {
+            "q": "¿Puedo consultar el estado de mi caso en línea?",
+            "a": "Próximamente habilitaremos un portal de cliente con login. Hasta entonces, cada consulta puntual tiene respuesta en menos de 24 horas."
+          },
+          {
+            "q": "¿Manejan casos en otros idiomas?",
+            "a": "Sí. Atendemos en español, inglés y portugués. Para casos en otros idiomas trabajamos con traductores públicos matriculados."
+          },
+          {
+            "q": "¿Qué documentos debo traer a la primera consulta?",
+            "a": "Toda la documentación relevante del caso: contratos, notificaciones, sentencias, correos, fotos. Si todavía no tiene nada, no se preocupe: la primera reunión es para entender el contexto."
+          }
+        ]
+      },
+      {
+        "title": "Honorarios y modalidades",
+        "items": [
+          {
+            "q": "¿Cuánto cuesta un caso Civil promedio?",
+            "a": "Depende del tipo. Una consultoría contractual puede ir de G. 2.500.000 a G. 8.000.000. Un litigio ordinario, según complejidad, puede comenzar en G. 12.000.000 y negociarse por etapas."
+          },
+          {
+            "q": "¿Cuánto cuesta un caso Penal?",
+            "a": "Cada caso penal es único. Trabajamos con presupuesto por etapas (instrucción, intermedia, juicio oral) y tarifa horaria para audiencias. La propuesta incluye todos los rubros."
+          },
+          {
+            "q": "¿Aceptan casos pro bono?",
+            "a": "Sí. El 5% de nuestra agenda anual se reserva para casos pro bono evaluados por la Comisión de Servicio Comunitario del Colegio de Abogados."
+          },
+          {
+            "q": "¿Cómo se factura?",
+            "a": "A la firma de la carta de encargo se abona el 30% del honorario total. El saldo se factura en cuotas mensuales o contra resultado, según lo acordado."
+          },
+          {
+            "q": "Si pierdo el caso, ¿tengo que pagar todo igual?",
+            "a": "Sí. Los honorarios del abogado se devengan por el trabajo realizado, no por el resultado. En algunos casos evaluamos acuerdos mixtos (fijo + porcentaje de resultado), pero esto se discute antes de iniciar la acción."
+          }
+        ]
+      }
+    ]
+  },
+  "contact": {
+    "lead": "Cuéntenos su caso. Le respondemos en menos de 24 horas.",
+    "channels": [
+      {
+        "type": "whatsapp",
+        "label": "WhatsApp",
+        "value": "+595 981 234 567",
+        "href": "https://wa.me/595981234567?text=Hola%20Rubic%C3%B3n%20EAS%2C%20me%20interesar%C3%ADa%20una%20consulta."
+      },
+      {
+        "type": "email",
+        "label": "Email",
+        "value": "contacto@rubiconeas.com.py",
+        "href": "mailto:contacto@rubiconeas.com.py"
+      },
+      {
+        "type": "phone",
+        "label": "Teléfono",
+        "value": "+595 21 123 456",
+        "href": "tel:+59521123456"
+      },
+      {
+        "type": "address",
+        "label": "Oficina",
+        "value": "Av. Mariscal López 1234, Piso 8 Of. 803, Asunción",
+        "href": "https://maps.google.com/?q=Av.+Mariscal+L%C3%B3pez+1234,+Asunci%C3%B3n"
+      }
+    ],
+    "form": {
+      "lead": "Complete el formulario. Recibirá la respuesta en su WhatsApp o correo.",
+      "submit_label": "Enviar consulta",
+      "success": "Gracias. Un abogado de Rubicón EAS le enviará un mensaje en los próximos minutos."
+    }
+  },
+  "cta_banner": {
+    "title": "Su próximo paso legal empieza con una conversación honesta.",
+    "lead": "Una primera consulta de 30 minutos, sin compromiso, para entender su caso.",
+    "button": {"label": "Agendar consulta", "href": "contacto.html"}
+  },
+  "disclaimer": "La información publicada en este sitio no constituye asesoramiento jurídico. Para conferir una consulta formal, agende una cita o contacte directamente a la firma. La utilización de este sitio implica la aceptación de los Términos y Condiciones y la Política de Privacidad.",
+  "footer": {
+    "name": "Rubicón EAS",
+    "sub": "Empresa por Acciones Simplificadas · Paraguay",
+    "matricula": "Matrícula CSJ N° 23.456",
+    "legal_links": [
+      {"label": "Privacidad", "href": "#privacidad"},
+      {"label": "Términos", "href": "#terminos"},
+      {"label": "Cookies", "href": "#cookies"},
+      {"label": "Disclaimers", "href": "#disclaimers"}
+    ]
+  }
+}

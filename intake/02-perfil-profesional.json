@@ -1,0 +1,230 @@
+{
+  "section": "02 · Perfil profesional del abogado",
+  "scope": "Trayectoria, matrículas, formación, especialidades",
+  "questions": [
+    {
+      "id": "PR-01",
+      "category": "Identidad personal",
+      "question": "Nombre completo tal como figura en la cédula de identidad paraguaya.",
+      "type": "text",
+      "required": true,
+      "example": "Juan María Pérez González"
+    },
+    {
+      "id": "PR-02",
+      "category": "Identidad personal",
+      "question": "Nombre preferido para aparecer en el sitio (con o sin título, abreviado, etc.).",
+      "type": "text",
+      "required": true,
+      "example": "Dr. Juan M. Pérez · Juan Pérez"
+    },
+    {
+      "id": "PR-03",
+      "category": "Identidad personal",
+      "question": "¿Cuál es el nombre del cargo oficial dentro de la EAS?",
+      "type": "text",
+      "required": true,
+      "example": "Director · Socio Fundador · Director Ejecutivo"
+    },
+    {
+      "id": "PR-04",
+      "category": "Identidad personal",
+      "question": "Indique el RUC personal.",
+      "type": "text",
+      "required": true
+    },
+    {
+      "id": "PR-05",
+      "category": "Identidad personal",
+      "question": "Fecha de nacimiento (para calcular años de ejercicio).",
+      "type": "date",
+      "required": false
+    },
+    {
+      "id": "PR-06",
+      "category": "Identidad personal",
+      "question": "Lugar de nacimiento y ciudad de residencia actual.",
+      "type": "text",
+      "required": false
+    },
+    {
+      "id": "PR-07",
+      "category": "Identidad personal",
+      "question": "Indique la dirección de correo electrónico personal que se publicará en el sitio.",
+      "type": "email",
+      "required": true
+    },
+    {
+      "id": "PR-08",
+      "category": "Identidad personal",
+      "question": "Indique el número de teléfono celular profesional (con código de país +595).",
+      "type": "tel",
+      "required": true,
+      "example": "+595 981 234 567"
+    },
+    {
+      "id": "PR-09",
+      "category": "Identidad personal",
+      "question": "¿Tiene un segundo número (asistente o conmutador)?",
+      "type": "tel",
+      "required": false
+    },
+    {
+      "id": "PR-10",
+      "category": "Identidad personal",
+      "question": "Enlace a su perfil de LinkedIn (si existe).",
+      "type": "url",
+      "required": false
+    },
+    {
+      "id": "PR-11",
+      "category": "Identidad personal",
+      "question": "Foto profesional para el sitio (4x5 cm, fondo neutro, mirada a cámara, alta resolución).",
+      "type": "file",
+      "required": true,
+      "accepted_formats": ["jpg", "png", "webp"]
+    },
+    {
+      "id": "PR-12",
+      "category": "Identidad personal",
+      "question": "Resumen biográfico (3-5 párrafos) redactado en primera persona.",
+      "type": "textarea",
+      "required": true,
+      "hint": "Responder preguntas: ¿de dónde es? ¿qué lo motivó a estudiar derecho? ¿qué lo trajo a esta especialidad? ¿qué lo distingue? ¿cuál es su visión profesional?"
+    },
+    {
+      "id": "PR-13",
+      "category": "Identidad personal",
+      "question": "Resumen biográfico alternativo en tercera persona (3-5 párrafos).",
+      "type": "textarea",
+      "required": true,
+      "hint": "Misma información pero redactada en estilo institucional."
+    },
+    {
+      "id": "PR-14",
+      "category": "Identidad personal",
+      "question": "Lista de 3-5 valores profesionales centrales (ej: confidencialidad, transparencia, resultado).",
+      "type": "tags",
+      "required": true
+    },
+    {
+      "id": "PR-15",
+      "category": "Identidad personal",
+      "question": "¿Cuál es el área de práctica en la que tiene mayor experiencia y casos ganados?",
+      "type": "select",
+      "options": ["Derecho Civil", "Derecho Penal", "Derecho Ambiental", "Igualdad entre las tres"],
+      "required": true,
+      "default": "Derecho Civil"
+    },
+    {
+      "id": "PR-16",
+      "category": "Matrículas",
+      "question": "Número de Matrícula en la Corte Suprema de Justicia (CSJ).",
+      "type": "text",
+      "required": true,
+      "example": "Matrícula CSJ N° 23.456"
+    },
+    {
+      "id": "PR-17",
+      "category": "Matrículas",
+      "question": "Fecha de inscripción en la CSJ.",
+      "type": "date",
+      "required": true
+    },
+    {
+      "id": "PR-18",
+      "category": "Matrículas",
+      "question": "¿Está matriculado en el Colegio de Abogados del Paraguay? Número y fecha.",
+      "type": "text",
+      "required": true
+    },
+    {
+      "id": "PR-19",
+      "category": "Matrículas",
+      "question": "¿Tiene matrícula en otros colegios profesionales (Procuraduría, Escribanía, etc.)?",
+      "type": "textarea",
+      "required": false
+    },
+    {
+      "id": "PR-20",
+      "category": "Matrículas",
+      "question": "¿Se encuentra habilitado para litigar en alguna jurisdicción especial (Justicia Electoral, Tribunal Superior de Justicia Electoral, Corte Interamericana, etc.)?",
+      "type": "textarea",
+      "required": false
+    },
+    {
+      "id": "PR-21",
+      "category": "Formación",
+      "question": "Universidad donde cursó la carrera de Derecho.",
+      "type": "text",
+      "required": true,
+      "example": "Universidad Nacional de Asunción (UNA) · Universidad Católica de Asunción (UCA)"
+    },
+    {
+      "id": "PR-22",
+      "category": "Formación",
+      "question": "Año de graduación (egreso).",
+      "type": "number",
+      "required": true,
+      "example": 2010
+    },
+    {
+      "id": "PR-23",
+      "category": "Formación",
+      "question": "Postítulos, especializaciones, maestrías o doctorados (incluir institución, año, título obtenido).",
+      "type": "textarea",
+      "required": false,
+      "example": "Maestría en Derecho Civil y Procesal Civil — Universidad ........ — 2015"
+    },
+    {
+      "id": "PR-24",
+      "category": "Formación",
+      "question": "Diplomados, cursos cortos, certificaciones internacionales de relevancia.",
+      "type": "textarea",
+      "required": false
+    },
+    {
+      "id": "PR-25",
+      "category": "Formación",
+      "question": "Idiomas que habla con fluidez profesional.",
+      "type": "tags",
+      "required": true,
+      "options": ["Español", "Inglés", "Portugués", "Guaraní", "Alemán", "Francés", "Italiano"]
+    },
+    {
+      "id": "PR-26",
+      "category": "Formación",
+      "question": "Docencia: ¿es profesor o ha sido profesor en alguna universidad o instituto?",
+      "type": "textarea",
+      "required": false
+    },
+    {
+      "id": "PR-27",
+      "category": "Formación",
+      "question": "Publicaciones: ¿tiene libros, artículos, comentarios en revistas jurídicas?",
+      "type": "textarea",
+      "required": false
+    },
+    {
+      "id": "PR-28",
+      "category": "Formación",
+      "question": "Membresías: ¿integra asociaciones profesionales (Asociación de Abogados, Instituto de Derecho, etc.)?",
+      "type": "textarea",
+      "required": false
+    },
+    {
+      "id": "PR-29",
+      "category": "Formación",
+      "question": "Disertaciones, conferencias o charlas dictadas (últimos 5 años).",
+      "type": "textarea",
+      "required": false
+    },
+    {
+      "id": "PR-30",
+      "category": "Formación",
+      "question": "Reconocimientos, premios, distinciones académicas o profesionales.",
+      "type": "textarea",
+      "required": false
+    }
+  ]
+}
