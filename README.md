@@ -40,7 +40,9 @@
 │   └── README.md
 ├── sample-urls.json                    # 12 presigned R2 URLs
 ├── worker.js                           # 5.9KB CF Worker code
-└── DEPLOY.md                           # Deploy + iteration playbook
+├── DEPLOY.md                           # Deploy + iteration playbook
+├── propuesta/                          # Comercial proposal
+│   └── PROPUESTA-COMERCIAL.md           # 3-tier pricing for Rubicón EAS (A/B/C)
 ```
 
 ---
@@ -177,6 +179,7 @@ Working estimate: **5–7 days** end-to-end after brief is filled.
 When sending the questionnaire to the client, include:
 - `intake/01-10-*.json` (10 files, ~290 questions)
 - `sample/README.md` (explains the demo)
+- `propuesta/PROPUESTA-COMERCIAL.md` (3-tier pricing A/B/C)
 - Live URL: https://rubiconeas.paragu-ai.com/
 
 The client can respond either in the JSON files (replace `null` with answers)
