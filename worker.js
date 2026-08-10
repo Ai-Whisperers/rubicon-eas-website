@@ -15,7 +15,9 @@ const FILES = {
     "assets/main.js": "https://9eb1832f3e42a1dbd6ba854f8d6a1cb2.r2.cloudflarestorage.com/ai-whisperers-backups/rubicon-eas/assets/main.js?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ce41cee6154fcf0bf1f9be848dffcd20%2F20260810%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20260810T230748Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=418df2341d2caa6ae6938c89acd0d6bb5258ae5906d0daee3852e83c5866c1b7",
     "assets/content.es.json": "https://9eb1832f3e42a1dbd6ba854f8d6a1cb2.r2.cloudflarestorage.com/ai-whisperers-backups/rubicon-eas/assets/content.es.json?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ce41cee6154fcf0bf1f9be848dffcd20%2F20260810%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20260810T230748Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=1d96c6f7ca0ded4c4229048c39487888ebbb234a896906bf335e84264f674058",
     "admin.html": "https://9eb1832f3e42a1dbd6ba854f8d6a1cb2.r2.cloudflarestorage.com/ai-whisperers-backups/rubicon-eas/admin.html?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ce41cee6154fcf0bf1f9be848dffcd20%2F20260810%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20260810T232448Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=9c1cab8f262b57c31692c652653d621c958bd83398c4283f3301f2666aa18143",
-    "assets/schema.js": "https://9eb1832f3e42a1dbd6ba854f8d6a1cb2.r2.cloudflarestorage.com/ai-whisperers-backups/rubicon-eas/assets/schema.js?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ce41cee6154fcf0bf1f9be848dffcd20%2F20260810%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20260810T232705Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=d45d002c886208ad259943aca684908a05c8c0e0b8b6a3a90fa7b14aaacb8cc8"
+    "assets/schema.js": "https://9eb1832f3e42a1dbd6ba854f8d6a1cb2.r2.cloudflarestorage.com/ai-whisperers-backups/rubicon-eas/assets/schema.js?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ce41cee6154fcf0bf1f9be848dffcd20%2F20260810%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20260810T235657Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=e2b034e9454c0aaf9da5284d7167cf44df8ae93417c550722afbd058ab28af63",
+    "sitemap.xml": "https://9eb1832f3e42a1dbd6ba854f8d6a1cb2.r2.cloudflarestorage.com/ai-whisperers-backups/rubicon-eas/sitemap.xml?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ce41cee6154fcf0bf1f9be848dffcd20%2F20260810%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20260810T235657Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=b1a65d16da5a8ddeadbbbc8f67100df1a5c5598c78b833e2873039474228b34e",
+    "robots.txt": "https://9eb1832f3e42a1dbd6ba854f8d6a1cb2.r2.cloudflarestorage.com/ai-whisperers-backups/rubicon-eas/robots.txt?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ce41cee6154fcf0bf1f9be848dffcd20%2F20260810%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20260810T235657Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=41e184b062f010bba0d6f801b8257d233e0fb600021d1b03ca893fbc01adf1f6"
 };
 
 function guessCT(path) {
@@ -23,7 +25,8 @@ function guessCT(path) {
   if (path.endsWith(".css")) return "text/css; charset=utf-8";
   if (path.endsWith(".js")) return "application/javascript; charset=utf-8";
   if (path.endsWith(".json")) return "application/json; charset=utf-8";
-  if (path.endsWith(".svg")) return "image/svg+xml";
+  if (path.endsWith(".xml")) return "application/xml; charset=utf-8";
+  if (path.endsWith(".txt")) return "text/plain; charset=utf-8";
   return "application/octet-stream";
 }
 

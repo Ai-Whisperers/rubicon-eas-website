@@ -1,5 +1,5 @@
 // Rubicón EAS — Schema.org JSON-LD generator
-// Reads from data-page and injects appropriate @type based on URL.
+// Auto-injects appropriate schema.org types per page.
 
 (function () {
   'use strict';
@@ -14,7 +14,7 @@
       street: 'Av. Mariscal López 1234, Piso 8 Of. 803',
       city: 'Asunción',
       region: 'Central',
-      country: 'PY',
+      country: 'PY'
     },
     geo: { lat: -25.2637, lng: -57.5759 },
     social: ['https://linkedin.com/in/juan-perez-rubicon']
@@ -24,23 +24,15 @@
     name: 'Dr. Juan María Pérez González',
     jobTitle: 'Socio Fundador · Abogado',
     url: 'https://rubiconeas.com.py/nosotros',
-    alumni: [
-      'Universidad Nacional de Asunción',
-      'Universidad de Salamanca'
-    ],
+    alumni: ['Universidad Nacional de Asunción', 'Universidad de Salamanca'],
     knowsLanguage: ['es', 'en', 'pt'],
-    memberOf: [
-      'Colegio de Abogados del Paraguay',
-      'Asociación de Abogados del Paraguay'
-    ],
+    memberOf: ['Colegio de Abogados del Paraguay', 'Asociación de Abogados del Paraguay'],
     award: 'Matrícula CSJ N° 23.456 · Colegio de Abogados N° 8.921'
   };
 
   const CSJ = 'Matrícula CSJ N° 23.456';
 
-  function canonicalUrl() {
-    return window.location.origin + window.location.pathname.replace(/\/$/, '');
-  }
+  // --- Schema generators ---
 
   function legalServiceSchema() {
     return {
@@ -59,43 +51,43 @@
         { '@type': 'Place', name: 'Asunción' },
         { '@type': 'Place', name: 'Central' },
         { '@type': 'Place', name: 'Alto Paraná' },
-        { '@type': 'Place', name: 'Itapúa' },
+        { '@type': 'Place', name: 'Itapúa' }
       ],
       address: {
         '@type': 'PostalAddress',
         streetAddress: SITE.address.street,
         addressLocality: SITE.address.city,
         addressRegion: SITE.address.region,
-        addressCountry: SITE.address.country,
+        addressCountry: SITE.address.country
       },
       geo: {
         '@type': 'GeoCoordinates',
         latitude: SITE.geo.lat,
-        longitude: SITE.geo.lng,
+        longitude: SITE.geo.lng
       },
       openingHoursSpecification: [
         {
           '@type': 'OpeningHoursSpecification',
           dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
           opens: '09:00',
-          closes: '18:00',
+          closes: '18:00'
         },
         {
           '@type': 'OpeningHoursSpecification',
-          dayOfWeek: ['Saturday'],
+          dayOfWeek: 'Saturday',
           opens: '09:00',
-          closes: '12:00',
+          closes: '12:00'
         }
       ],
-      priceRange: 'Gs. 150,000 - Gs. 25,000,000',
+      priceRange: 'Gs. 150.000 - Gs. 25.000.000',
       knowsLanguage: ['Spanish', 'English', 'Portuguese'],
       member: {
         '@type': 'Person',
         name: PERSON.name,
-        jobTitle: PERSON.jobTitle,
+        jobTitle: PERSON.jobTitle
       },
       award: CSJ,
-      sameAs: SITE.social,
+      sameAs: SITE.social
     };
   }
 
@@ -107,19 +99,19 @@
       name: PERSON.name,
       jobTitle: PERSON.jobTitle,
       url: SITE.url,
-      alumniOf: PERSON.alumni.map(function (name) {
-        return { '@type': 'EducationalOrganization', name: name };
+      alumniOf: PERSON.alumni.map(function (n) {
+        return { '@type': 'EducationalOrganization', name: n };
       }),
       knowsLanguage: PERSON.knowsLanguage,
-      memberOf: PERSON.memberOf.map(function (name) {
-        return { '@type': 'Organization', name: name };
+      memberOf: PERSON.memberOf.map(function (n) {
+        return { '@type': 'Organization', name: n };
       }),
       award: PERSON.award,
       worksFor: {
         '@type': 'LegalService',
         name: SITE.name,
-        address: SITE.address,
-      },
+        address: SITE.address
+      }
     };
   }
 
@@ -132,26 +124,33 @@
           '@type': 'ListItem',
           position: i + 1,
           name: item.name,
-          item: item.url,
+          item: item.url
         };
-      }),
+      })
     };
   }
 
-  function faqSchema(pairs) {
+  function faqSchemaFromDOM() {
+    var items = [];
+    document.querySelectorAll('.faq-item').forEach(function (el) {
+      var q = el.querySelector('q');
+      var a = el.querySelector('.a');
+      if (q && a) {
+        items.push({
+          '@type': 'Question',
+          name: q.textContent.trim(),
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: a.textContent.trim()
+          }
+        });
+      }
+    });
+    if (items.length === 0) return null;
     return {
       '@context': 'https://schema.org',
       '@type': 'FAQPage',
-      mainEntity: pairs.map(function (p) {
-        return {
-          '@type': 'Question',
-          name: p.q,
-          acceptedAnswer: {
-            '@type': 'Answer',
-            text: p.a,
-          },
-        };
-      }),
+      mainEntity: items
     };
   }
 
@@ -163,16 +162,12 @@
       description: c.summary,
       dateModified: c.year + '-12-31',
       outcome: c.outcome,
-      jurisdiction: {
-        '@type': 'Place',
-        name: c.jurisdiction,
-      },
-      provider: {
-        '@type': 'Attorney',
-        name: PERSON.name,
-      },
+      jurisdiction: { '@type': 'Place', name: c.jurisdiction },
+      provider: { '@type': 'Attorney', name: PERSON.name }
     };
   }
+
+  // --- Injection ---
 
   function injectSchema(data) {
     var existing = document.querySelector('script[data-schema="dynamic"]');
@@ -188,17 +183,17 @@
     arr.forEach(injectSchema);
   }
 
-  // Detect page type and inject
+  // --- Auto-detect and inject ---
+
   var path = window.location.pathname;
   var baseSchemas = [legalServiceSchema(), personSchema()];
 
   if (path === '/' || path === '/index.html') {
-    // Home: LegalService + Person + Breadcrumb
     injectMultiSchema(baseSchemas);
     injectSchema(breadcrumbSchema([
       { name: 'Inicio', url: SITE.url + '/' },
       { name: 'Áreas de práctica', url: SITE.url + '/#areas' },
-      { name: 'Contacto', url: SITE.url + '/contacto.html' },
+      { name: 'Contacto', url: SITE.url + '/contacto.html' }
     ]));
   } else if (path.includes('/derecho-civil')) {
     injectMultiSchema(baseSchemas);
@@ -208,7 +203,7 @@
       name: 'Derecho Civil · Rubicón EAS',
       description: 'Servicios jurídicos en Derecho Civil: contratos, sucesiones, responsabilidad civil, propiedad y litigios.',
       about: 'Derecho Civil',
-      isPartOf: { '@type': 'WebSite', name: SITE.name, url: SITE.url },
+      isPartOf: { '@type': 'WebSite', name: SITE.name, url: SITE.url }
     });
   } else if (path.includes('/derecho-penal')) {
     injectMultiSchema(baseSchemas);
@@ -218,7 +213,7 @@
       name: 'Derecho Penal · Rubicón EAS',
       description: 'Defensa penal estratégica en Paraguay. Delitos económicos, funcionarios y comunes.',
       about: 'Derecho Penal',
-      isPartOf: { '@type': 'WebSite', name: SITE.name, url: SITE.url },
+      isPartOf: { '@type': 'WebSite', name: SITE.name, url: SITE.url }
     });
   } else if (path.includes('/derecho-ambiental')) {
     injectMultiSchema(baseSchemas);
@@ -228,7 +223,7 @@
       name: 'Derecho Ambiental · Rubicón EAS',
       description: 'Asesoramiento en Derecho Ambiental: infracciones, EIA, recursos naturales.',
       about: 'Derecho Ambiental',
-      isPartOf: { '@type': 'WebSite', name: SITE.name, url: SITE.url },
+      isPartOf: { '@type': 'WebSite', name: SITE.name, url: SITE.url }
     });
   } else if (path.includes('/nosotros')) {
     injectMultiSchema(baseSchemas);
@@ -239,8 +234,11 @@
       '@type': 'ContactPage',
       name: 'Contacto · Rubicón EAS',
       description: 'Contacte a Rubicón EAS. Atención al cliente, WhatsApp institucional, formulario de consulta.',
-      isPartOf: { '@type': 'WebSite', name: SITE.name, url: SITE.url },
+      isPartOf: { '@type': 'WebSite', name: SITE.name, url: SITE.url }
     });
+    // Auto-detect FAQ section
+    var faq = faqSchemaFromDOM();
+    if (faq) injectSchema(faq);
   } else if (path.includes('/casos')) {
     injectMultiSchema(baseSchemas);
   } else if (path.includes('/blog')) {
@@ -249,7 +247,7 @@
       '@context': 'https://schema.org',
       '@type': 'Blog',
       name: 'Artículos · Rubicón EAS',
-      isPartOf: { '@type': 'WebSite', name: SITE.name, url: SITE.url },
+      isPartOf: { '@type': 'WebSite', name: SITE.name, url: SITE.url }
     });
   } else {
     injectMultiSchema(baseSchemas);
@@ -260,9 +258,9 @@
     legalService: legalServiceSchema,
     person: personSchema,
     breadcrumb: breadcrumbSchema,
-    faq: faqSchema,
+    faq: faqSchemaFromDOM,
     legalCase: legalCaseSchema,
     inject: injectSchema,
-    injectMulti: injectMultiSchema,
+    injectMulti: injectMultiSchema
   };
 })();
