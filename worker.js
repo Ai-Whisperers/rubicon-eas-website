@@ -3,17 +3,17 @@ addEventListener("fetch", event => {
 });
 
 const FILES = {
-  "derecho-civil.html": "https://9eb1832f3e42a1dbd6ba854f8d6a1cb2.r2.cloudflarestorage.com/ai-whisperers-backups/rubicon-eas/derecho-civil.html?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=${R2_ACCESS_KEY_ID}%2F20260810%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20260810T205245Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=1e6f17ae19e5e7c7dea2c2fe5e150b2be3f5e45d3e1ac86d3714cff44a2e37c7",
-  "casos.html": "https://9eb1832f3e42a1dbd6ba854f8d6a1cb2.r2.cloudflarestorage.com/ai-whisperers-backups/rubicon-eas/casos.html?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=${R2_ACCESS_KEY_ID}%2F20260810%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20260810T205245Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=4f3e4bdf2b902c506d8e6ef3553a8967dfd4adc9ebe44c0a4a16977c21f2a0da",
-  "derecho-ambiental.html": "https://9eb1832f3e42a1dbd6ba854f8d6a1cb2.r2.cloudflarestorage.com/ai-whisperers-backups/rubicon-eas/derecho-ambiental.html?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=${R2_ACCESS_KEY_ID}%2F20260810%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20260810T205245Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=cd9304f72e65bdbdf9080936f7453f8639d3537a3ae59f2c125c244cc42af988",
-  "index.html": "https://9eb1832f3e42a1dbd6ba854f8d6a1cb2.r2.cloudflarestorage.com/ai-whisperers-backups/rubicon-eas/index.html?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=${R2_ACCESS_KEY_ID}%2F20260810%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20260810T205245Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=906f1323943bf292f42810a4ac3e8e8ca402dc3f0fd0205a938c587f1f30258d",
-  "contacto.html": "https://9eb1832f3e42a1dbd6ba854f8d6a1cb2.r2.cloudflarestorage.com/ai-whisperers-backups/rubicon-eas/contacto.html?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=${R2_ACCESS_KEY_ID}%2F20260810%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20260810T205245Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=7a318d6867b751002f85eca6748e4f164ec9a8724af3a8c3b350c30399e97a24",
-  "derecho-penal.html": "https://9eb1832f3e42a1dbd6ba854f8d6a1cb2.r2.cloudflarestorage.com/ai-whisperers-backups/rubicon-eas/derecho-penal.html?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=${R2_ACCESS_KEY_ID}%2F20260810%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20260810T205245Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=9d9905f692c0877b145e5943d8d4333488beb16f7dad66571c98dc5872ebe8fc",
-  "nosotros.html": "https://9eb1832f3e42a1dbd6ba854f8d6a1cb2.r2.cloudflarestorage.com/ai-whisperers-backups/rubicon-eas/nosotros.html?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=${R2_ACCESS_KEY_ID}%2F20260810%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20260810T205245Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=4daeef919599d193995e8745248654c46865ff1d24d686c292340781cd783607",
-  "blog.html": "https://9eb1832f3e42a1dbd6ba854f8d6a1cb2.r2.cloudflarestorage.com/ai-whisperers-backups/rubicon-eas/blog.html?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=${R2_ACCESS_KEY_ID}%2F20260810%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20260810T205245Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=715906db388b830c306aa28e394b66a9c6401751d22c993116e6878b6530451f",
-  "assets/styles.css": "https://9eb1832f3e42a1dbd6ba854f8d6a1cb2.r2.cloudflarestorage.com/ai-whisperers-backups/rubicon-eas/assets/styles.css?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=${R2_ACCESS_KEY_ID}%2F20260810%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20260810T205245Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=9ecffd2da9376a6d9ae8cbfe10e16556f279d75283944ead3831a99f220ada62",
-  "assets/content.es.json": "https://9eb1832f3e42a1dbd6ba854f8d6a1cb2.r2.cloudflarestorage.com/ai-whisperers-backups/rubicon-eas/assets/content.es.json?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=${R2_ACCESS_KEY_ID}%2F20260810%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20260810T205245Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=771ba5b61a81e2ef1e1f9c53d1f889d75d7a42e25aa3007a82c9cfef0173b84d",
-  "assets/main.js": "https://9eb1832f3e42a1dbd6ba854f8d6a1cb2.r2.cloudflarestorage.com/ai-whisperers-backups/rubicon-eas/assets/main.js?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=${R2_ACCESS_KEY_ID}%2F20260810%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20260810T205245Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=6843349df50f665ec8ecbe440fe1b2ab7a24c5f4e41c2f2ff8d7e0c2ab7f6b53"
+  "index.html": "https://9eb1832f3e42a1dbd6ba854f8d6a1cb2.r2.cloudflarestorage.com/ai-whisperers-backups/rubicon-eas/index.html?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ce41cee6154fcf0bf1f9be848dffcd20%2F20260810%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20260810T230746Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=0c65c407a8ae993e1ccedb293c20ea6163e355e43e3d621d6a2fc3254dca8a71",
+  "derecho-civil.html": "https://9eb1832f3e42a1dbd6ba854f8d6a1cb2.r2.cloudflarestorage.com/ai-whisperers-backups/rubicon-eas/derecho-civil.html?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ce41cee6154fcf0bf1f9be848dffcd20%2F20260810%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20260810T230746Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=d5fa8f276532eea5519977e540bcf53963d461de63968ba2f09ae6d726f2dbd7",
+  "derecho-penal.html": "https://9eb1832f3e42a1dbd6ba854f8d6a1cb2.r2.cloudflarestorage.com/ai-whisperers-backups/rubicon-eas/derecho-penal.html?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ce41cee6154fcf0bf1f9be848dffcd20%2F20260810%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20260810T230746Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=2a20a62869c7c3648e44eea0c390b6dab41cb034b905034dd0b0a1c18409404f",
+  "derecho-ambiental.html": "https://9eb1832f3e42a1dbd6ba854f8d6a1cb2.r2.cloudflarestorage.com/ai-whisperers-backups/rubicon-eas/derecho-ambiental.html?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ce41cee6154fcf0bf1f9be848dffcd20%2F20260810%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20260810T230747Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=ec50d5fb0168a0e0bf320448f162f3edc4b393857d1c41a75d154be8ba275dc9",
+  "nosotros.html": "https://9eb1832f3e42a1dbd6ba854f8d6a1cb2.r2.cloudflarestorage.com/ai-whisperers-backups/rubicon-eas/nosotros.html?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ce41cee6154fcf0bf1f9be848dffcd20%2F20260810%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20260810T230747Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=c15da956ea9797d251a9f1f83d87b70a1cfb975698979366969cb0c48a214c7f",
+  "casos.html": "https://9eb1832f3e42a1dbd6ba854f8d6a1cb2.r2.cloudflarestorage.com/ai-whisperers-backups/rubicon-eas/casos.html?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ce41cee6154fcf0bf1f9be848dffcd20%2F20260810%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20260810T230747Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=cf2dbf71fca2770b2b867fe049cf473d8dcbb6d84fa25c5b99ab2e47cf55a21a",
+  "contacto.html": "https://9eb1832f3e42a1dbd6ba854f8d6a1cb2.r2.cloudflarestorage.com/ai-whisperers-backups/rubicon-eas/contacto.html?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ce41cee6154fcf0bf1f9be848dffcd20%2F20260810%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20260810T230747Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=413cf1904968a15d6070d57913b150251413f8293703b7c18fc59ed86cdafed3",
+  "blog.html": "https://9eb1832f3e42a1dbd6ba854f8d6a1cb2.r2.cloudflarestorage.com/ai-whisperers-backups/rubicon-eas/blog.html?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ce41cee6154fcf0bf1f9be848dffcd20%2F20260810%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20260810T230747Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=d994d903c40ed178fed97770b64e5bc38576b840a85f50f54098dbf2324c358c",
+  "assets/styles.css": "https://9eb1832f3e42a1dbd6ba854f8d6a1cb2.r2.cloudflarestorage.com/ai-whisperers-backups/rubicon-eas/assets/styles.css?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ce41cee6154fcf0bf1f9be848dffcd20%2F20260810%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20260810T230748Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=16976940b4c9cd2107e74ebb7a8c29ca12e40d8dc2efff14ce01a1ae042a4b59",
+  "assets/main.js": "https://9eb1832f3e42a1dbd6ba854f8d6a1cb2.r2.cloudflarestorage.com/ai-whisperers-backups/rubicon-eas/assets/main.js?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ce41cee6154fcf0bf1f9be848dffcd20%2F20260810%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20260810T230748Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=418df2341d2caa6ae6938c89acd0d6bb5258ae5906d0daee3852e83c5866c1b7",
+  "assets/content.es.json": "https://9eb1832f3e42a1dbd6ba854f8d6a1cb2.r2.cloudflarestorage.com/ai-whisperers-backups/rubicon-eas/assets/content.es.json?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ce41cee6154fcf0bf1f9be848dffcd20%2F20260810%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20260810T230748Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=1d96c6f7ca0ded4c4229048c39487888ebbb234a896906bf335e84264f674058"
 };
 
 function guessCT(path) {
@@ -29,23 +29,19 @@ async function handle(request) {
   const url = new URL(request.url);
   const path = url.pathname;
 
-  // Strip leading /
   let key = path.replace(/^\//, "");
-
-  // Root → index.html
   if (key === "") key = "index.html";
 
-  // Strip query/hash from filename match
   for (const candidate of [key, key + ".html"]) {
     if (FILES[candidate]) {
       try {
         const resp = await fetch(FILES[candidate], {
-          cf: { cacheTtl: 300, cacheEverything: true }
+          cf: { cacheTtl: 60, cacheEverything: true }
         });
         return new Response(await resp.text(), {
           headers: {
             "Content-Type": guessCT(candidate),
-            "Cache-Control": "public, max-age=300"
+            "Cache-Control": "public, max-age=60"
           }
         });
       } catch (e) {

@@ -1,0 +1,31 @@
+name = "rubicon-eas-lead"
+main = "api/lead-worker.js"
+compatibility_date = "2026-08-01"
+
+# KV namespace for lead log (90-day retention)
+# Create with: wrangler kv:namespace create LEADS
+# [[kv_namespaces]]
+# binding = "LEADS"
+# id = "..."
+
+# Custom domain binding (run `wrangler route` after deploy)
+# [[routes]]
+# pattern = "rubiconeas.com.py/api/lead*"
+# custom_domain = true
+
+[env.production]
+name = "rubicon-eas-lead"
+routes = [
+  { pattern = "rubiconeas.com.py/api/lead*", custom_domain = true },
+  { pattern = "rubiconeas.paragu-ai.com/api/lead*", custom_domain = true }
+]
+
+[env.staging]
+name = "rubicon-eas-lead-staging"
+routes = [
+  { pattern = "staging.rubiconeas.com.py/api/lead*", custom_domain = true }
+]
+
+# Secrets (set via `wrangler secret put`):
+#   WEBHOOK_URL  — n8n webhook to forward formatted briefs (e.g. WhatsApp)
+#   API_KEY      — optional auth token for client-side calls

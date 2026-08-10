@@ -1,0 +1,84 @@
+name: Validate intake + content
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'intake/**'
+      - 'sample/**'
+      - 'content/**'
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  validate-intake:
+    name: Validate intake JSON shape
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Validate intake/*.json structure
+        run: |
+          python3 scripts/validate-intake.py
+
+      - name: Check required fields
+        run: |
+          python3 scripts/check-required.py
+
+  validate-content:
+    name: Validate content.es.json
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Validate content schema
+        run: |
+          python3 scripts/validate-content.py
+
+  scan-secrets:
+    name: Scan for accidentally committed secrets
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Run gitleaks
+        uses: gitleaks/gitleaks-action@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  validate-trademark:
+    name: Trademark banlist scrub
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check trademark banlist
+        run: |
+          python3 scripts/trademark-scrub.py
+
+  smoke-frontend:
+    name: Smoke test live preview
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push'
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Run live URL probe
+        env:
+          LIVE_URL: ${{ secrets.LIVE_URL }}
+        run: |
+          python3 scripts/smoke-test.py "$LIVE_URL"
+        continue-on-error: true
