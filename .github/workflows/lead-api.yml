@@ -1,0 +1,69 @@
+name: Lead API contract
+
+on:
+  pull_request:
+    paths:
+      - 'api/**'
+      - 'sample/**'
+  push:
+    branches: [main]
+
+jobs:
+  contract:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Validate worker syntax
+        run: |
+          node --check api/lead-worker.js
+          node --check api/lead-worker.test.js
+
+      - name: Validate wrangler.toml
+        run: |
+          python3 -c "import tomllib; tomllib.loads(open('api/wrangler.toml').read()); print('wrangler.toml valid')"
+
+      - name: Test lead Worker endpoint
+        env:
+          LIVE_URL: ${{ secrets.LIVE_URL }}
+        run: |
+          if [ -z "$LIVE_URL" ]; then
+            echo "LIVE_URL not set, skipping live test"
+            exit 0
+          fi
+          URL="${LIVE_URL}/api/lead"
+
+          # Health check
+          curl -fsS "$URL/health" | jq -e '.ok == true'
+
+          # Valid lead
+          curl -fsS -X POST "$URL" \
+            -H "Content-Type: application/json" \
+            -d '{
+              "name": "Test Lead",
+              "phone": "+595 981 123 456",
+              "email": "test@example.com",
+              "area": "civil",
+              "summary": "Test summary for CI contract verification.",
+              "consent": true
+            }' | jq -e '.ok == true and .priority == "NORMAL"'
+
+          # Invalid (missing phone)
+          HTTP=$(curl -s -o /dev/null -w "%{http_code}" -X POST "$URL" \
+            -H "Content-Type: application/json" \
+            -d '{"name":"x","area":"civil","summary":"short","consent":true}')
+          [ "$HTTP" = "400" ] || (echo "expected 400, got $HTTP"; exit 1)
+
+          # Honeypot
+          curl -fsS -X POST "$URL" \
+            -H "Content-Type: application/json" \
+            -d '{
+              "name": "Bot",
+              "phone": "+595 981 999 999",
+              "area": "civil",
+              "summary": "ignore me",
+              "consent": true,
+              "website": "http://spam.com"
+            }' | jq -e '.ok == true and .ignored == true'
+
+          echo "✅ Lead API contract OK"

@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Cliente · enviar brief
+    url: https://github.com/Ai-Whisperers/rubicon-eas-website/issues/1
+    about: Responde el brief completo en el issue #1
+  - name: Live preview
+    url: https://rubiconeas.paragu-ai.com/
+    about: Demo en vivo del sitio
+  - name: Repo GitHub
+    url: https://github.com/Ai-Whisperers/rubicon-eas-website
+    about: Repositorio principal

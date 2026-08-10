@@ -1,0 +1,89 @@
+/* Case study detail page — minimal scaffold for future expansion */
+body.case { background: var(--color-bg); }
+.case-hero {
+  padding: 5rem 0 3rem;
+  background: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+}
+.case-hero .badge {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-accent);
+  padding: 0.25rem 0.75rem;
+  background: rgba(139, 94, 43, 0.1);
+  border-radius: 999px;
+  margin-bottom: 1rem;
+}
+.case-hero h1 {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  margin-bottom: 1rem;
+}
+.case-meta {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--color-border);
+}
+.case-meta-item .label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-muted);
+  margin-bottom: 0.25rem;
+}
+.case-meta-item .value {
+  font-weight: 600;
+  color: var(--color-text);
+}
+.case-body {
+  max-width: 800px;
+  margin: 3rem auto;
+  padding: 0 1.5rem;
+}
+.case-body h2 {
+  margin: 2rem 0 1rem;
+  font-size: 1.5rem;
+}
+.case-body p {
+  margin-bottom: 1.25rem;
+  line-height: 1.8;
+}
+.case-outcome {
+  background: rgba(45, 105, 87, 0.08);
+  border-left: 4px solid var(--color-success);
+  padding: 1.5rem;
+  border-radius: 0 8px 8px 0;
+  margin: 2rem 0;
+}
+.case-outcome .label {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  color: var(--color-success);
+  letter-spacing: 0.1em;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+.case-outcome p {
+  margin: 0;
+}
+.case-nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 3rem 0;
+  border-top: 1px solid var(--color-border);
+  margin-top: 4rem;
+}
+.case-nav a {
+  text-decoration: none;
+  color: var(--color-primary);
+  font-weight: 600;
+}
+.case-nav a:hover {
+  color: var(--color-accent);
+}
