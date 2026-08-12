@@ -1,6 +1,7 @@
 User-agent: *
 Allow: /
 Disallow: /admin.html
+Disallow: /red-colegas.html
 Disallow: /api/
 
 Sitemap: https://rubiconeas.paragu-ai.com/sitemap.xml

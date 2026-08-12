@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Red de Colegas — Rubicón EAS</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="stylesheet" href="assets/styles.css">
+  <style>
+    body { background: var(--color-bg); }
+    .panel { max-width: 1100px; margin: 2rem auto; padding: 0 1.5rem; }
+    .panel h1 { margin-bottom: 0.5rem; }
+    .panel .sub { color: var(--color-muted); margin-bottom: 2rem; }
+    .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 1rem; margin-bottom: 2rem; }
+    .stat-card { background: var(--color-surface); padding: 1.5rem; border-radius: 8px; border: 1px solid var(--color-border); }
+    .stat-card .v { font-family: var(--font-serif); font-size: 2rem; font-weight: 700; color: var(--color-primary); }
+    .stat-card .l { font-size: 0.875rem; color: var(--color-muted); text-transform: uppercase; letter-spacing: 0.05em; margin-top: 0.25rem; }
+    .toolbar { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-bottom: 1.5rem; }
+    .toolbar button, .toolbar input, .toolbar select { padding: 0.5rem 1rem; border-radius: 4px; border: 1px solid var(--color-border-strong); background: var(--color-surface); font-family: inherit; font-size: 0.875rem; }
+    .toolbar input { flex: 1; min-width: 200px; }
+    .toolbar button { background: var(--color-primary); color: var(--color-bg); border: none; cursor: pointer; font-weight: 600; }
+    .toolbar button.secondary { background: var(--color-surface); color: var(--color-text); border: 1px solid var(--color-border-strong); }
+    table { width: 100%; border-collapse: collapse; background: var(--color-surface); border: 1px solid var(--color-border); border-radius: 8px; overflow: hidden; }
+    th { background: var(--color-primary); color: white; padding: 0.75rem 1rem; text-align: left; font-size: 0.875rem; font-weight: 600; }
+    td { padding: 0.75rem 1rem; border-top: 1px solid var(--color-border); font-size: 0.875rem; }
+    tr:hover { background: rgba(31, 58, 95, 0.04); }
+    .badge { display: inline-block; padding: 0.2rem 0.5rem; border-radius: 999px; font-size: 0.75rem; font-weight: 600; }
+    .badge.no-contactado { background: rgba(148, 163, 184, 0.2); color: #475569; }
+    .badge.contactado { background: rgba(234, 179, 8, 0.2); color: #92400e; }
+    .badge.reunion { background: rgba(59, 130, 246, 0.2); color: #1e40af; }
+    .badge.acuerdo { background: rgba(45, 105, 87, 0.2); color: var(--color-success); }
+    .badge.inactivo { background: rgba(220, 38, 38, 0.1); color: #dc2626; }
+    .calif { color: var(--color-accent); }
+    .empty { text-align: center; padding: 4rem 1rem; color: var(--color-muted); }
+    .empty h3 { font-family: var(--font-serif); margin-bottom: 1rem; color: var(--color-text); }
+    dialog { padding: 0; border: none; border-radius: 8px; max-width: 500px; }
+    dialog::backdrop { background: rgba(0, 0, 0, 0.4); }
+    .modal-body { padding: 1.5rem; }
+    .modal-body h3 { margin-bottom: 1rem; font-family: var(--font-serif); }
+    .form-group { margin-bottom: 1rem; }
+    .form-group label { display: block; font-size: 0.8125rem; font-weight: 600; margin-bottom: 0.25rem; color: var(--color-text); }
+    .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 0.5rem; border: 1px solid var(--color-border-strong); border-radius: 4px; font-family: inherit; font-size: 0.875rem; }
+    .form-group textarea { min-height: 60px; }
+    .modal-actions { display: flex; gap: 0.5rem; justify-content: flex-end; margin-top: 1.5rem; }
+    .modal-actions button { padding: 0.5rem 1rem; border: none; border-radius: 4px; cursor: pointer; font-weight: 600; font-size: 0.875rem; }
+    .modal-actions .save { background: var(--color-primary); color: white; }
+    .modal-actions .cancel { background: var(--color-surface); color: var(--color-text); border: 1px solid var(--color-border-strong); }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container">
+      <span class="badge">R · Rubicón EAS · Red de Colegas</span>
+      <span class="contact-pill">
+        <a class="pill" href="https://rubiconeas.paragu-ai.com/">← Volver al sitio</a>
+      </span>
+    </div>
+  </header>
+
+  <header class="nav">
+    <div class="nav-inner">
+      <a href="/red-colegas.html" class="logo">
+        <span class="logo-mark">R</span>
+        <span>
+          <div>Red de Colegas</div>
+          <div class="city">Rubicón EAS · Derivaciones</div>
+        </span>
+      </a>
+    </div>
+  </header>
+
+  <main class="panel">
+    <h1>Red de colegas y derivaciones</h1>
+    <p class="sub">Tracking de la red de derivación de Rubicón EAS. Datos guardados en tu navegador (localStorage).</p>
+
+    <div class="stats">
+      <div class="stat-card"><div class="v" id="stat-total">0</div><div class="l">Total contactos</div></div>
+      <div class="stat-card"><div class="v" id="stat-contactados">0</div><div class="l">Contactados</div></div>
+      <div class="stat-card"><div class="v" id="stat-acuerdos">0</div><div class="l">Acuerdos firmados</div></div>
+      <div class="stat-card"><div class="v" id="stat-derivaciones">0</div><div class="l">Derivaciones hechas</div></div>
+      <div class="stat-card"><div class="v" id="stat-este-mes">0</div><div class="l">Contactos este mes</div></div>
+    </div>
+
+    <div class="toolbar">
+      <input type="text" id="search" placeholder="Buscar por nombre, estudio, área..." oninput="render()">
+      <select id="filter-estado" onchange="render()">
+        <option value="">Todos los estados</option>
+        <option value="no-contactado">No contactado</option>
+        <option value="contactado">Contactado</option>
+        <option value="reunion">Reunión agendada</option>
+        <option value="acuerdo">Acuerdo firmado</option>
+        <option value="inactivo">Inactivo</option>
+      </select>
+      <button onclick="openAddModal()">+ Agregar colega</button>
+      <button class="secondary" onclick="exportData()">Exportar CSV</button>
+      <button class="secondary" onclick="importData()">Importar CSV</button>
+    </div>
+
+    <table id="tabla">
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Estudio</th>
+          <th>Área</th>
+          <th>Estado</th>
+          <th>Último contacto</th>
+          <th>Calif</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+    <div class="empty" id="empty" style="display:none">
+      <h3>Sin contactos todavía</h3>
+      <p>Agregá colegas para empezar a construir la red de derivaciones.</p>
+      <p style="margin-top: 0.5rem;"><a href="#" onclick="openAddModal(); return false;">+ Agregar el primero</a></p>
+    </div>
+  </main>
+
+  <dialog id="modal">
+    <div class="modal-body">
+      <h3 id="modal-title">Agregar colega</h3>
+      <form id="form-colega">
+        <input type="hidden" name="id">
+        <div class="form-group">
+          <label>Nombre completo *</label>
+          <input name="nombre" required>
+        </div>
+        <div class="form-group">
+          <label>Estudio</label>
+          <input name="estudio">
+        </div>
+        <div class="form-group">
+          <label>Área principal</label>
+          <select name="area_principal">
+            <option value="civil">Civil</option>
+            <option value="penal">Penal</option>
+            <option value="ambiental">Ambiental</option>
+            <option value="laboral">Laboral</option>
+            <option value="familia">Familia</option>
+            <option value="comercial">Comercial</option>
+            <option value="otro">Otro</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Teléfono / WhatsApp</label>
+          <input name="telefono">
+        </div>
+        <div class="form-group">
+          <label>Estado</label>
+          <select name="estado">
+            <option value="no-contactado">No contactado</option>
+            <option value="contactado">Contactado</option>
+            <option value="reunion">Reunión agendada</option>
+            <option value="acuerdo">Acuerdo firmado</option>
+            <option value="inactivo">Inactivo</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Calificación (1-5 ★)</label>
+          <select name="calificacion">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3" selected>3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Fuente</label>
+          <select name="fuente">
+            <option value="manual">Manual</option>
+            <option value="google-maps">Google Maps</option>
+            <option value="colegio">Colegio Abogados</option>
+            <option value="referido">Referido por colega</option>
+            <option value="linkedin">LinkedIn</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Notas</label>
+          <textarea name="notas"></textarea>
+        </div>
+        <div class="modal-actions">
+          <button type="button" class="cancel" onclick="closeModal()">Cancelar</button>
+          <button type="submit" class="save">Guardar</button>
+        </div>
+      </form>
+    </div>
+  </dialog>
+
+  <script>
+  (function() {
+    'use strict';
+
+    var STORAGE_KEY = 'rubiconeas-red-colegas';
+
+    function loadData() {
+      try {
+        var raw = localStorage.getItem(STORAGE_KEY);
+        return raw ? JSON.parse(raw) : [];
+      } catch (e) {
+        return [];
+      }
+    }
+
+    function saveData(data) {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+    }
+
+    function escape(s) {
+      if (s == null) return '';
+      return String(s).replace(/[<>&"']/g, function (c) {
+        return { '<': '&lt;', '>': '&gt;', '&': '&amp;', '"': '&quot;', "'": '&#39;' }[c];
+      });
+    }
+
+    function fmtDate(iso) {
+      if (!iso) return '—';
+      return new Date(iso).toLocaleDateString('es-PY');
+    }
+
+    function calcStars(n) {
+      var s = '';
+      for (var i = 0; i < 5; i++) s += i < parseInt(n, 10) ? '★' : '☆';
+      return s;
+    }
+
+    function updateStats() {
+      var data = loadData();
+      var total = data.length;
+      var contactados = data.filter(function(d) { return d.estado !== 'no-contactado'; }).length;
+      var acuerdos = data.filter(function(d) { return d.estado === 'acuerdo'; }).length;
+      var now = new Date();
+      var thisMonth = now.getFullYear() + '-' + String(now.getMonth() + 1).padStart(2, '0');
+      var esteMes = data.filter(function(d) { return d.fecha_ultimo_contacto && d.fecha_ultimo_contacto.indexOf(thisMonth) === 0; }).length;
+      var derivaciones = data.reduce(function(s, d) { return s + (parseInt(d.derivaciones_count) || 0); }, 0);
+      document.getElementById('stat-total').textContent = total;
+      document.getElementById('stat-contactados').textContent = contactados;
+      document.getElementById('stat-acuerdos').textContent = acuerdos;
+      document.getElementById('stat-derivaciones').textContent = derivaciones;
+      document.getElementById('stat-este-mes').textContent = esteMes;
+    }
+
+    function render() {
+      var data = loadData();
+      var search = (document.getElementById('search').value || '').toLowerCase();
+      var estado = document.getElementById('filter-estado').value;
+      var filtered = data.filter(function(d) {
+        if (search) {
+          var haystack = (d.nombre + ' ' + (d.estudio || '') + ' ' + (d.area_principal || '')).toLowerCase();
+          if (haystack.indexOf(search) === -1) return false;
+        }
+        if (estado && d.estado !== estado) return false;
+        return true;
+      });
+      var tbody = document.querySelector('#tabla tbody');
+      tbody.innerHTML = '';
+      document.getElementById('empty').style.display = filtered.length === 0 ? 'block' : 'none';
+      document.getElementById('tabla').style.display = filtered.length === 0 ? 'none' : 'table';
+      filtered.forEach(function(d) {
+        var row = document.createElement('tr');
+        row.innerHTML =
+          '<td><strong>' + escape(d.nombre) + '</strong></td>' +
+          '<td>' + escape(d.estudio || '—') + '</td>' +
+          '<td>' + escape(d.area_principal || '—') + '</td>' +
+          '<td><span class="badge ' + escape(d.estado) + '">' + escape(d.estado) + '</span></td>' +
+          '<td>' + fmtDate(d.fecha_ultimo_contacto) + '</td>' +
+          '<td class="calif">' + calcStars(d.calificacion) + '</td>' +
+          '<td>' +
+            '<button onclick="editEntry(\'' + d.id + '\')" style="border:none;background:none;color:var(--color-primary);cursor:pointer">Editar</button> · ' +
+            '<button onclick="deleteEntry(\'' + d.id + '\')" style="border:none;background:none;color:#dc2626;cursor:pointer">Eliminar</button>' +
+          '</td>';
+        tbody.appendChild(row);
+      });
+      updateStats();
+    }
+
+    window.openAddModal = function() {
+      document.getElementById('modal-title').textContent = 'Agregar colega';
+      var form = document.getElementById('form-colega');
+      form.reset();
+      form.id.value = '';
+      document.getElementById('modal').showModal();
+    };
+
+    window.closeModal = function() {
+      document.getElementById('modal').close();
+    };
+
+    window.editEntry = function(id) {
+      var data = loadData();
+      var entry = data.find(function(d) { return d.id === id; });
+      if (!entry) return;
+      document.getElementById('modal-title').textContent = 'Editar colega';
+      var form = document.getElementById('form-colega');
+      Object.keys(entry).forEach(function(k) {
+        if (form[k]) form[k].value = entry[k] || '';
+      });
+      document.getElementById('modal').showModal();
+    };
+
+    window.deleteEntry = function(id) {
+      if (!confirm('¿Eliminar este colega?')) return;
+      var data = loadData();
+      data = data.filter(function(d) { return d.id !== id; });
+      saveData(data);
+      render();
+    };
+
+    document.getElementById('form-colega').addEventListener('submit', function(e) {
+      e.preventDefault();
+      var form = e.target;
+      var data = loadData();
+      var entry = {
+        id: form.id.value || ('colega-' + Date.now() + '-' + Math.random().toString(36).slice(2, 6)),
+        nombre: form.nombre.value,
+        estudio: form.estudio.value,
+        area_principal: form.area_principal.value,
+        telefono: form.telefono.value,
+        estado: form.estado.value,
+        calificacion: form.calificacion.value,
+        fuente: form.fuente.value,
+        notas: form.notas.value,
+        fecha_ultimo_contacto: '',
+        derivaciones_count: '0',
+      };
+      var existing = data.find(function(d) { return d.id === entry.id; });
+      if (existing) {
+        entry.fecha_ultimo_contacto = existing.fecha_ultimo_contacto;
+        entry.derivaciones_count = existing.derivaciones_count;
+        data = data.map(function(d) { return d.id === entry.id ? entry : d; });
+      } else {
+        data.push(entry);
+      }
+      saveData(data);
+      closeModal();
+      render();
+    });
+
+    window.exportData = function() {
+      var data = loadData();
+      var csv = 'nombre,estudio,area_principal,telefono,estado,calificacion,fuente,notas,fecha_ultimo_contacto,derivaciones_count\n';
+      data.forEach(function(d) {
+        csv += [d.nombre, d.estudio, d.area_principal, d.telefono, d.estado, d.calificacion, d.fuente, d.notas, d.fecha_ultimo_contacto, d.derivaciones_count]
+          .map(function(v) { return '"' + String(v || '').replace(/"/g, '""') + '"'; })
+          .join(',') + '\n';
+      });
+      var blob = new Blob([csv], { type: 'text/csv' });
+      var url = URL.createObjectURL(blob);
+      var a = document.createElement('a');
+      a.href = url;
+      a.download = 'rubiconeas-colegas-' + new Date().toISOString().slice(0, 10) + '.csv';
+      a.click();
+      URL.revokeObjectURL(url);
+    };
+
+    window.importData = function() {
+      var input = document.createElement('input');
+      input.type = 'file';
+      input.accept = '.csv';
+      input.onchange = function(e) {
+        var file = e.target.files[0];
+        if (!file) return;
+        var reader = new FileReader();
+        reader.onload = function(ev) {
+          var lines = ev.target.result.split('\n').slice(1);
+          var data = loadData();
+          lines.forEach(function(line) {
+            if (!line.trim()) return;
+            var parts = line.split(',');
+            data.push({
+              id: 'colega-import-' + Date.now() + '-' + Math.random().toString(36).slice(2, 6),
+              nombre: parts[0] || '',
+              estudio: parts[1] || '',
+              area_principal: parts[2] || '',
+              telefono: parts[3] || '',
+              estado: parts[4] || 'no-contactado',
+              calificacion: parts[5] || '3',
+              fuente: parts[6] || 'import',
+              notas: parts[7] || '',
+              fecha_ultimo_contacto: parts[8] || '',
+              derivaciones_count: parts[9] || '0',
+            });
+          });
+          saveData(data);
+          render();
+          alert('Importados ' + lines.length + ' colegas');
+        };
+        reader.readAsText(file);
+      };
+      input.click();
+    };
+
+    render();
+  })();
+  </script>
+</body>
+</html>

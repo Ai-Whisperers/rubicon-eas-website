@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Newsletter Mensual — Ometz Dental</title>
+  <style type="text/css">
+    body { margin: 0; padding: 0; font-family: 'Montserrat', Helvetica, Arial, sans-serif; background: #FAFAF8; color: #2D2D2D; }
+    .container { max-width: 600px; margin: 0 auto; background: #FAFAF8; }
+    .header { background: #1A5F5A; padding: 32px; text-align: center; }
+    .aleph { color: #B8860B; font-size: 36px; margin: 0; }
+    .brand { color: #FAFAF8; font-size: 24px; font-weight: 700; letter-spacing: 6px; margin: 8px 0 0; }
+    .tagline { color: #FAFAF8; font-size: 14px; font-style: italic; margin: 8px 0 0; opacity: 0.85; }
+    .content { padding: 40px; }
+    h2 { color: #1A5F5A; font-size: 22px; font-weight: 700; margin: 0 0 16px; }
+    h3 { color: #1A5F5A; font-size: 18px; font-weight: 600; margin: 24px 0 8px; }
+    p { font-size: 16px; line-height: 1.6; margin: 0 0 16px; }
+    .divider { border: none; border-top: 2px solid #B8860B; width: 60px; margin: 24px auto; }
+    .article-card { background: #FAFAF8; border: 1px solid #1A5F5A; border-radius: 12px; padding: 20px; margin: 16px 0; }
+    .article-card h3 { margin-top: 0; }
+    .cta-button { display: inline-block; background: #B8860B; color: #FAFAF8 !important; font-size: 14px; font-weight: 700; letter-spacing: 2px; padding: 12px 28px; border-radius: 28px; text-decoration: none; margin: 8px 0; }
+    .footer { background: #2D2D2D; color: #FAFAF8; padding: 32px; text-align: center; font-size: 12px; }
+    .footer a { color: #FAFAF8; }
+    @media only screen and (max-width: 480px) {
+      .content { padding: 24px !important; }
+      .header { padding: 24px !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <p class="aleph">אומץ</p>
+      <p class="brand">OMETZ DENTAL</p>
+      <p class="tagline">Te escucho.</p>
+    </div>
+
+    <div class="content">
+      <h2>{{MES}} {{AÑO}} en Ometz</h2>
+      <hr class="divider">
+      <p>Hola {{FIRST_NAME}},</p>
+      <p>Cada mes te compartimos 1 tema dental importante + 1 promo + 1 reflexión. Sin spam, sin alarmismo, solo lo que necesitás saber para cuidar tu boca.</p>
+
+      <h3>📚 TEMA DEL MES</h3>
+      <div class="article-card">
+        <h3>{{TITULO_ARTICULO}}</h3>
+        <p>{{RESUMEN_2_LINEAS}}</p>
+        <a href="https://ometsdental.com/blog/{{SLUG}}" class="cta-button">LEER ARTÍCULO</a>
+      </div>
+
+      <h3>🎁 PROMO DEL MES</h3>
+      <div class="article-card">
+        <h3>{{TITULO_PROMO}}</h3>
+        <p>{{DETALLE_PROMO}}</p>
+        <p style="color: #B8860B; font-weight: 700;">Válido: {{FECHAS}}</p>
+        <a href="https://wa.me/595987126790?text={{PROMO_KEYWORD}}" class="cta-button">📱 RESERVAR</a>
+      </div>
+
+      <h3>💭 REFLEXIÓN DE GABY</h3>
+      <p style="font-style: italic; color: #1A5F5A;">"{{QUOTE_MES}}"</p>
+      <p style="text-align: right; opacity: 0.75;">— Dra. Gaby</p>
+
+      <hr class="divider">
+      <p style="font-size: 14px; opacity: 0.75;">Si preferís no recibir más, <a href="{{UNSUBSCRIBE_URL}}" style="color: #B8860B;">desuscribite acá</a>.</p>
+    </div>
+
+    <div class="footer">
+      <p style="color: #B8860B; font-size: 28px; margin: 0 0 16px;">אומץ</p>
+      <p style="margin: 0 0 8px;"><strong>Ometz Dental · Dra. Gabriella González Pane</strong></p>
+      <p style="margin: 0 0 8px;">Auditores de la Guerra del Chaco 617 · Mburucuyá, Asunción</p>
+      <p style="margin: 0 0 16px;">+595 987 126 790</p>
+      <p style="margin: 0;">
+        <a href="https://facebook.com/ometsdental">Facebook</a> ·
+        <a href="https://instagram.com/ometsdental">Instagram</a> ·
+        <a href="https://wa.me/595987126790">WhatsApp</a>
+      </p>
+    </div>
+  </div>
+</body>
+</html>

@@ -40,4 +40,14 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
+  <url>
+    <loc>https://rubiconeas.paragu-ai.com/red-colegas.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://rubiconeas.paragu-ai.com/admin.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.1</priority>
+  </url>
 </urlset>
